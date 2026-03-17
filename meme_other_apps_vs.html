@@ -1,0 +1,204 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    width:1080px; height:1920px;
+    background:#2a2520;
+    font-family:'DM Sans',Arial,Helvetica,sans-serif;
+    overflow:hidden;
+  }
+  @keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+  @keyframes fadeInUp {
+    from { opacity:0; transform:translateY(60px); }
+    to { opacity:1; transform:translateY(0); }
+  }
+  @keyframes fadeInDown {
+    from { opacity:0; transform:translateY(-40px); }
+    to { opacity:1; transform:translateY(0); }
+  }
+  @keyframes scaleIn {
+    from { opacity:0; transform:scale(0.5); }
+    to { opacity:1; transform:scale(1); }
+  }
+  @keyframes scalePop {
+    0% { opacity:0; transform:scale(0.3); }
+    70% { opacity:1; transform:scale(1.15); }
+    100% { opacity:1; transform:scale(1); }
+  }
+  @keyframes shakeNo {
+    0%, 100% { transform:translateX(0); }
+    20% { transform:translateX(-12px); }
+    40% { transform:translateX(12px); }
+    60% { transform:translateX(-8px); }
+    80% { transform:translateX(8px); }
+  }
+  @keyframes gentleSway {
+    0%, 100% { transform:rotate(0deg); }
+    25% { transform:rotate(3deg); }
+    75% { transform:rotate(-3deg); }
+  }
+  @keyframes slideInLeft {
+    from { opacity:0; transform:translateX(-120px); }
+    to { opacity:1; transform:translateX(0); }
+  }
+  @keyframes slideInRight {
+    from { opacity:0; transform:translateX(120px); }
+    to { opacity:1; transform:translateX(0); }
+  }
+  @keyframes strikethrough {
+    from { width: 0; }
+    to { width: 100%; }
+  }
+  @keyframes dropIn {
+    0% { opacity:0; transform:translateY(-200px) rotate(-10deg); }
+    60% { opacity:1; transform:translateY(20px) rotate(2deg); }
+    80% { transform:translateY(-8px) rotate(-1deg); }
+    100% { opacity:1; transform:translateY(0) rotate(0deg); }
+  }
+  @keyframes float {
+    0%, 100% { transform:translateY(0); }
+    50% { transform:translateY(-15px); }
+  }
+  @keyframes typewriter {
+    from { clip-path: inset(0 100% 0 0); }
+    to { clip-path: inset(0 0% 0 0); }
+  }
+  @keyframes glowPulse {
+    0%, 100% { text-shadow: 0 0 20px rgba(154,176,106,0.3); }
+    50% { text-shadow: 0 0 40px rgba(154,176,106,0.8), 0 0 80px rgba(154,176,106,0.4); }
+  }
+</style>
+</head><body>
+<div style="width:100%;height:100%;display:flex;flex-direction:column;
+  align-items:center;justify-content:space-between;padding:80px 50px 80px;
+  text-align:center">
+
+  <!-- Title -->
+  <div style="opacity:0; animation: fadeInDown 0.6s ease-out 0.3s forwards;
+    font-family:Georgia,'Times New Roman',serif;font-size:42px;
+    color:#f5f0e8;line-height:1.15">
+    every productivity app<br>I've ever tried</div>
+
+  <!-- VS comparison -->
+  <div style="display:flex;width:100%;gap:30px;align-items:flex-start">
+
+    <!-- Left: Other apps -->
+    <div style="flex:1;text-align:center">
+      <div style="opacity:0; animation: fadeIn 0.4s ease-out 1.0s forwards;
+        font-size:18px;color:#e74c3c;letter-spacing:2px;text-transform:uppercase;
+        margin-bottom:20px">other apps</div>
+      <div style="display:flex;flex-direction:column;gap:0;text-align:left;padding-left:20px">
+        
+        <div style="opacity:0; animation: shakeNo 0.5s ease-out 1.5s forwards, fadeIn 0.3s ease-out 1.5s forwards;
+          position:relative; font-size:24px; color:#e74c3c; line-height:2.0">
+          missed a day?
+          <div style="position:absolute;top:50%;left:0;height:3px;background:#e74c3c;
+            width:0; animation: strikethrough 0.4s ease-out 2.3s forwards;"></div>
+        </div>
+        <div style="opacity:0; animation: shakeNo 0.5s ease-out 2.2s forwards, fadeIn 0.3s ease-out 2.2s forwards;
+          position:relative; font-size:24px; color:#e74c3c; line-height:2.0">
+          STREAK LOST
+          <div style="position:absolute;top:50%;left:0;height:3px;background:#e74c3c;
+            width:0; animation: strikethrough 0.4s ease-out 3.0s forwards;"></div>
+        </div>
+        <div style="opacity:0; animation: shakeNo 0.5s ease-out 3.0s forwards, fadeIn 0.3s ease-out 3.0s forwards;
+          position:relative; font-size:24px; color:#e74c3c; line-height:2.0">
+          here's a guilt notification
+          <div style="position:absolute;top:50%;left:0;height:3px;background:#e74c3c;
+            width:0; animation: strikethrough 0.4s ease-out 3.8s forwards;"></div>
+        </div>
+        <div style="opacity:0; animation: shakeNo 0.5s ease-out 3.8s forwards, fadeIn 0.3s ease-out 3.8s forwards;
+          position:relative; font-size:24px; color:#e74c3c; line-height:2.0">
+          your plants are DYING
+          <div style="position:absolute;top:50%;left:0;height:3px;background:#e74c3c;
+            width:0; animation: strikethrough 0.4s ease-out 4.6s forwards;"></div>
+        </div>
+        <div style="opacity:0; animation: shakeNo 0.5s ease-out 4.6s forwards, fadeIn 0.3s ease-out 4.6s forwards;
+          position:relative; font-size:24px; color:#e74c3c; line-height:2.0">
+          pay $9.99 to recover
+          <div style="position:absolute;top:50%;left:0;height:3px;background:#e74c3c;
+            width:0; animation: strikethrough 0.4s ease-out 5.3999999999999995s forwards;"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Divider -->
+    <div style="opacity:0; animation: fadeIn 0.3s ease-out 0.8s forwards;
+      width:2px;background:rgba(255,255,255,0.1);min-height:350px;align-self:stretch"></div>
+
+    <!-- Right: BloomDay -->
+    <div style="flex:1;text-align:center">
+      <div style="opacity:0; animation: fadeIn 0.4s ease-out 6.0s forwards;
+        font-size:18px;color:#9ab06a;letter-spacing:2px;text-transform:uppercase;
+        margin-bottom:20px">bloomday</div>
+      <div style="display:flex;flex-direction:column;gap:0;text-align:left;padding-left:20px">
+        
+        <div style="opacity:0; animation: fadeInUp 0.5s ease-out 6.5s forwards;
+          font-size:24px; color:#9ab06a; line-height:2.0">
+          missed a week?</div>
+        <div style="opacity:0; animation: fadeInUp 0.5s ease-out 7.2s forwards;
+          font-size:24px; color:#9ab06a; line-height:2.0">
+          that's okay.</div>
+        <div style="opacity:0; animation: fadeInUp 0.5s ease-out 7.9s forwards;
+          font-size:24px; color:#9ab06a; line-height:2.0">
+          your garden waited.</div>
+        <div style="opacity:0; animation: fadeInUp 0.5s ease-out 8.6s forwards;
+          font-size:24px; color:#9ab06a; line-height:2.0">
+          nothing died.</div>
+        <div style="opacity:0; animation: fadeInUp 0.5s ease-out 9.3s forwards;
+          font-size:24px; color:#9ab06a; line-height:2.0">
+          welcome back.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Plants appear at the bottom -->
+  <div style="display:flex;gap:20px;align-items:flex-end;justify-content:center">
+    <div style="opacity:0; animation: fadeInUp 0.8s ease-out 10.0s forwards;">
+      <div style="animation: gentleSway 3s ease-in-out 11s infinite;"><svg viewBox="0 0 120 140" width="200" height="225" xmlns="http://www.w3.org/2000/svg">
+  <ellipse cx="60" cy="134" rx="24" ry="3" fill="rgba(0,0,0,0.08)"/>
+  <path d="M 38 100 L 42 128 Q 60 132 78 128 L 82 100 Z" fill="#8B7355"/>
+  <ellipse cx="60" cy="100" rx="23" ry="5" fill="#6d5537"/>
+  <ellipse cx="60" cy="100" rx="20" ry="3.5" fill="#5C4A2A"/>
+  <path d="M 50 100 Q 48 65 46 25 Q 47 20 50 18 Q 53 20 52 25 Q 52 65 51 100 Z" fill="#2E7D32"/>
+  <path d="M 50 100 Q 48 65 47 30" stroke="#FDD835" stroke-width="0.8" opacity="0.25" fill="none"/>
+  <path d="M 49 55 Q 51 53 53 55" stroke="#1B5E20" stroke-width="0.4" opacity="0.3" fill="none"/>
+  <path d="M 56 100 Q 55 60 53 22 Q 55 16 58 14 Q 61 16 60 22 Q 58 60 57 100 Z" fill="#1B5E20"/>
+  <path d="M 56 100 Q 55 60 54 28" stroke="#FDD835" stroke-width="0.8" opacity="0.2" fill="none"/>
+  <path d="M 62 100 Q 63 55 65 20 Q 66 15 68 13 Q 71 15 70 20 Q 68 55 67 100 Z" fill="#388E3C"/>
+  <path d="M 62 100 Q 63 55 65 25" stroke="#FDD835" stroke-width="0.7" opacity="0.25" fill="none"/>
+  <path d="M 45 100 Q 43 72 40 38 Q 41 33 43 31 Q 46 33 45 38 Q 44 72 44 100 Z" fill="#43A047"/>
+  <path d="M 70 100 Q 72 68 74 35 Q 75 30 77 28 Q 79 30 78 35 Q 76 68 75 100 Z" fill="#2E7D32"/>
+</svg></div>
+    </div>
+    <div style="opacity:0; animation: fadeInUp 0.8s ease-out 10.4s forwards;">
+      <div style="animation: gentleSway 3.5s ease-in-out 11.5s infinite;"><svg viewBox="0 0 120 140" width="220" height="248" xmlns="http://www.w3.org/2000/svg">
+  <ellipse cx="60" cy="134" rx="24" ry="3" fill="rgba(0,0,0,0.08)"/>
+  <path d="M 38 100 L 42 128 Q 60 132 78 128 L 82 100 Z" fill="#B8714E"/>
+  <ellipse cx="60" cy="100" rx="23" ry="5" fill="#9a5330"/>
+  <ellipse cx="60" cy="100" rx="20" ry="3.5" fill="#5C4A2A"/>
+  <path d="M 60 96 Q 58 75 56 55 Q 54 40 56 30" stroke="#6B4A2A" stroke-width="4" fill="none" stroke-linecap="round"/>
+  <path d="M 58 96 Q 56 80 56 75" stroke="#8B6A4A" stroke-width="1.5" fill="none" opacity="0.3" stroke-linecap="round"/>
+  <path d="M 57 55 Q 42 45 35 38" stroke="#6B4A2A" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  <path d="M 57 45 Q 70 35 78 30" stroke="#6B4A2A" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <path d="M 56 35 Q 48 28 42 22" stroke="#5B3A1A" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+  <path d="M 35 38 Q 28 30 22 28 Q 16 30 16 38 Q 18 42 22 44 Q 26 42 28 44 Q 32 48 35 45 Q 38 42 35 38 Z" fill="#2E7D32"/>
+  <line x1="35" y1="38" x2="20" y2="34" stroke="#1B5E20" stroke-width="0.5" opacity="0.3"/>
+  <path d="M 78 30 Q 84 22 90 20 Q 96 22 96 30 Q 94 34 90 36 Q 86 34 84 36 Q 80 38 78 36 Z" fill="#388E3C"/>
+  <path d="M 42 22 Q 36 14 30 12 Q 24 14 24 22 Q 26 26 30 28 Q 34 26 36 28 Q 40 30 42 28 Z" fill="#43A047"/>
+  <path d="M 56 30 Q 52 18 48 12 Q 44 10 42 16 Q 44 22 48 26 Q 52 28 56 30 Z" fill="#4CAF50"/>
+  <path d="M 56 30 Q 60 18 64 12 Q 68 10 70 16 Q 68 22 64 26 Z" fill="#388E3C"/>
+  <path d="M 58 70 Q 48 64 42 62 Q 38 64 40 70 Q 44 72 48 70 Q 56 72 58 70 Z" fill="#66BB6A"/>
+  <path d="M 62 82 Q 72 76 78 74 Q 82 76 80 82 Q 76 84 64 82 Z" fill="#4CAF50"/>
+</svg></div>
+    </div>
+  </div>
+
+  <!-- Final line -->
+  <div style="opacity:0; animation: fadeIn 0.6s ease-out 11.5s forwards;">
+    <div style="font-family:Georgia,'Times New Roman',serif;font-size:36px;
+      color:#9ab06a;animation: glowPulse 2s ease-in-out 12s infinite;
+      margin-bottom:10px">nothing dies here.</div>
+    <div style="font-size:15px;color:#9a8f84;letter-spacing:2px">bloomday.app · free forever</div>
+  </div>
+</div></body></html>

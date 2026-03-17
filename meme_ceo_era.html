@@ -1,0 +1,134 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    width:1080px; height:1920px;
+    background:#5e7054;
+    font-family:'DM Sans',Arial,Helvetica,sans-serif;
+    overflow:hidden;
+  }
+  @keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+  @keyframes fadeInUp {
+    from { opacity:0; transform:translateY(60px); }
+    to { opacity:1; transform:translateY(0); }
+  }
+  @keyframes fadeInDown {
+    from { opacity:0; transform:translateY(-40px); }
+    to { opacity:1; transform:translateY(0); }
+  }
+  @keyframes scaleIn {
+    from { opacity:0; transform:scale(0.5); }
+    to { opacity:1; transform:scale(1); }
+  }
+  @keyframes scalePop {
+    0% { opacity:0; transform:scale(0.3); }
+    70% { opacity:1; transform:scale(1.15); }
+    100% { opacity:1; transform:scale(1); }
+  }
+  @keyframes shakeNo {
+    0%, 100% { transform:translateX(0); }
+    20% { transform:translateX(-12px); }
+    40% { transform:translateX(12px); }
+    60% { transform:translateX(-8px); }
+    80% { transform:translateX(8px); }
+  }
+  @keyframes gentleSway {
+    0%, 100% { transform:rotate(0deg); }
+    25% { transform:rotate(3deg); }
+    75% { transform:rotate(-3deg); }
+  }
+  @keyframes slideInLeft {
+    from { opacity:0; transform:translateX(-120px); }
+    to { opacity:1; transform:translateX(0); }
+  }
+  @keyframes slideInRight {
+    from { opacity:0; transform:translateX(120px); }
+    to { opacity:1; transform:translateX(0); }
+  }
+  @keyframes strikethrough {
+    from { width: 0; }
+    to { width: 100%; }
+  }
+  @keyframes dropIn {
+    0% { opacity:0; transform:translateY(-200px) rotate(-10deg); }
+    60% { opacity:1; transform:translateY(20px) rotate(2deg); }
+    80% { transform:translateY(-8px) rotate(-1deg); }
+    100% { opacity:1; transform:translateY(0) rotate(0deg); }
+  }
+  @keyframes float {
+    0%, 100% { transform:translateY(0); }
+    50% { transform:translateY(-15px); }
+  }
+  @keyframes typewriter {
+    from { clip-path: inset(0 100% 0 0); }
+    to { clip-path: inset(0 0% 0 0); }
+  }
+  @keyframes glowPulse {
+    0%, 100% { text-shadow: 0 0 20px rgba(154,176,106,0.3); }
+    50% { text-shadow: 0 0 40px rgba(154,176,106,0.8), 0 0 80px rgba(154,176,106,0.4); }
+  }
+</style>
+</head><body>
+<div style="width:100%;height:100%;display:flex;flex-direction:column;
+  align-items:center;justify-content:space-between;padding:120px 60px 80px;
+  text-align:center">
+
+  <!-- "in my" - small, muted -->
+  <div style="opacity:0; animation: fadeIn 0.6s ease-out 0.5s forwards;
+    font-family:Georgia,'Times New Roman',serif;font-size:48px;
+    color:#8da880;line-height:1.1">in my</div>
+
+  <!-- Main era text - BIG dramatic reveal -->
+  <div style="opacity:0; animation: scalePop 0.8s ease-out 1.5s forwards;">
+    <div style="font-family:Georgia,'Times New Roman',serif;font-size:72px;
+      color:#f5f0e8;line-height:1.05;font-weight:700">
+      doing one task<br>and feeling like<br>a CEO</div>
+  </div>
+
+  <!-- "era" -->
+  <div style="opacity:0; animation: fadeIn 0.6s ease-out 3.0s forwards;
+    font-family:Georgia,'Times New Roman',serif;font-size:48px;
+    color:#8da880;line-height:1.1">era</div>
+
+  <!-- Divider -->
+  <div style="opacity:0; animation: fadeIn 0.3s ease-out 3.8s forwards;
+    width:80px;height:3px;background:#d4e8a8"></div>
+
+  <!-- Plant pops in -->
+  <div style="opacity:0; animation: scalePop 0.8s ease-out 4.2s forwards;">
+    <div style="animation: float 3s ease-in-out 5s infinite;">
+      <svg viewBox="0 0 120 140" width="300" height="338" xmlns="http://www.w3.org/2000/svg">
+  <ellipse cx="60" cy="134" rx="24" ry="3" fill="rgba(0,0,0,0.08)"/>
+  <path d="M 38 100 L 42 128 Q 60 132 78 128 L 82 100 Z" fill="#B8714E"/>
+  <ellipse cx="60" cy="100" rx="23" ry="5" fill="#9a5330"/>
+  <ellipse cx="60" cy="100" rx="20" ry="3.5" fill="#5C4A2A"/>
+  <path d="M 60 98 Q 58 75 55 55" stroke="#3A6B2A" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  <path d="M 58 85 Q 45 70 35 60" stroke="#3A6B2A" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <path d="M 60 80 Q 72 65 80 52" stroke="#3A6B2A" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <path d="M 57 90 Q 40 82 28 78" stroke="#3A6B2A" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+  <path d="M 55 55 Q 42 38 30 35 Q 22 36 20 44 Q 18 52 25 58 Q 30 60 36 56 Q 40 55 44 60 Q 50 62 55 55 Z" fill="#2E7D32"/>
+  <ellipse cx="35" cy="47" rx="3" ry="2.5" fill="#F5F0E8" opacity="0.7"/>
+  <ellipse cx="42" cy="53" rx="2" ry="2" fill="#F5F0E8" opacity="0.5"/>
+  <line x1="54" y1="56" x2="28" y2="42" stroke="#1B5E20" stroke-width="0.5" opacity="0.3"/>
+  <path d="M 80 52 Q 92 40 95 32 Q 94 24 86 22 Q 78 24 75 32 Q 77 44 80 52 Z" fill="#388E3C"/>
+  <ellipse cx="86" cy="32" rx="2.5" ry="2" fill="#F5F0E8" opacity="0.6"/>
+  <path d="M 28 78 Q 16 72 12 65 Q 10 58 15 54 Q 20 52 26 56 Q 24 70 28 78 Z" fill="#43A047"/>
+  <path d="M 55 55 Q 52 48 54 42 Q 56 38 58 40 Q 60 44 58 50 Z" fill="#66BB6A" opacity="0.8"/>
+</svg>
+    </div>
+  </div>
+
+  <!-- Punchline 1 -->
+  <div style="opacity:0; animation: fadeInUp 0.6s ease-out 5.5s forwards;
+    font-size:26px;color:#d4e8a8;font-style:italic;line-height:1.5">
+    the monstera grew a new leaf.<br>I am unstoppable.</div>
+
+  <!-- Punchline 2 - the joke -->
+  <div style="opacity:0; animation: fadeInUp 0.5s ease-out 7.0s forwards;
+    font-size:20px;color:#8da880;line-height:1.5">
+    (the task was "reply to one email")</div>
+
+  <div style="opacity:0; animation: fadeIn 0.4s ease-out 8.5s forwards;
+    font-size:15px;color:#8da880;letter-spacing:2px">
+    bloomday.app · free forever</div>
+</div></body></html>

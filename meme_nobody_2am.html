@@ -1,0 +1,157 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    width:1080px; height:1920px;
+    background:#2a2520;
+    font-family:'DM Sans',Arial,Helvetica,sans-serif;
+    overflow:hidden;
+  }
+  @keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+  @keyframes fadeInUp {
+    from { opacity:0; transform:translateY(60px); }
+    to { opacity:1; transform:translateY(0); }
+  }
+  @keyframes fadeInDown {
+    from { opacity:0; transform:translateY(-40px); }
+    to { opacity:1; transform:translateY(0); }
+  }
+  @keyframes scaleIn {
+    from { opacity:0; transform:scale(0.5); }
+    to { opacity:1; transform:scale(1); }
+  }
+  @keyframes scalePop {
+    0% { opacity:0; transform:scale(0.3); }
+    70% { opacity:1; transform:scale(1.15); }
+    100% { opacity:1; transform:scale(1); }
+  }
+  @keyframes shakeNo {
+    0%, 100% { transform:translateX(0); }
+    20% { transform:translateX(-12px); }
+    40% { transform:translateX(12px); }
+    60% { transform:translateX(-8px); }
+    80% { transform:translateX(8px); }
+  }
+  @keyframes gentleSway {
+    0%, 100% { transform:rotate(0deg); }
+    25% { transform:rotate(3deg); }
+    75% { transform:rotate(-3deg); }
+  }
+  @keyframes slideInLeft {
+    from { opacity:0; transform:translateX(-120px); }
+    to { opacity:1; transform:translateX(0); }
+  }
+  @keyframes slideInRight {
+    from { opacity:0; transform:translateX(120px); }
+    to { opacity:1; transform:translateX(0); }
+  }
+  @keyframes strikethrough {
+    from { width: 0; }
+    to { width: 100%; }
+  }
+  @keyframes dropIn {
+    0% { opacity:0; transform:translateY(-200px) rotate(-10deg); }
+    60% { opacity:1; transform:translateY(20px) rotate(2deg); }
+    80% { transform:translateY(-8px) rotate(-1deg); }
+    100% { opacity:1; transform:translateY(0) rotate(0deg); }
+  }
+  @keyframes float {
+    0%, 100% { transform:translateY(0); }
+    50% { transform:translateY(-15px); }
+  }
+  @keyframes typewriter {
+    from { clip-path: inset(0 100% 0 0); }
+    to { clip-path: inset(0 0% 0 0); }
+  }
+  @keyframes glowPulse {
+    0%, 100% { text-shadow: 0 0 20px rgba(154,176,106,0.3); }
+    50% { text-shadow: 0 0 40px rgba(154,176,106,0.8), 0 0 80px rgba(154,176,106,0.4); }
+  }
+</style>
+</head><body>
+<div style="width:100%;height:100%;display:flex;flex-direction:column;
+  align-items:center;justify-content:space-between;padding:120px 60px 80px;
+  text-align:center">
+
+  <div style="opacity:0; animation: fadeIn 0.5s ease-out 0.3s forwards;
+    font-size:16px;color:#9a8f84;letter-spacing:4px;text-transform:uppercase">
+    bloomday</div>
+
+  <!-- Nobody: -->
+  <div style="opacity:0; animation: fadeIn 0.4s ease-out 1.0s forwards;
+    font-size:32px;color:#9a8f84;text-align:left;width:100%;padding-left:60px">
+    nobody:</div>
+
+  <!-- Absolutely nobody: -->
+  <div style="opacity:0; animation: fadeIn 0.4s ease-out 2.0s forwards;
+    font-size:32px;color:#9a8f84;text-align:left;width:100%;padding-left:60px">
+    absolutely nobody:</div>
+
+  <!-- Me at 2am: -->
+  <div style="opacity:0; animation: fadeInUp 0.5s ease-out 3.2s forwards;
+    font-size:38px;color:#f5f0e8;text-align:left;width:100%;padding-left:60px;
+    font-weight:600">
+    me at 2am:</div>
+
+  <!-- The action - dramatic -->
+  <div style="opacity:0; animation: scalePop 0.8s ease-out 4.5s forwards;
+    font-family:Georgia,'Times New Roman',serif;font-size:44px;
+    color:#9ab06a;line-height:1.2;max-width:800px">
+    writing a time capsule<br>letter to future me<br>while growing an orchid</div>
+
+  <!-- Plants appear -->
+  <div style="display:flex;gap:40px;align-items:flex-end;justify-content:center">
+    <div style="opacity:0; animation: fadeInUp 0.8s ease-out 6.0s forwards;">
+      <div style="animation: float 3s ease-in-out 7s infinite;"><svg viewBox="0 0 120 140" width="200" height="225" xmlns="http://www.w3.org/2000/svg">
+  <path d="M 58 118 Q 46 114 36 110" stroke="#4A7A2A" stroke-width="1.2" fill="none"/>
+  <path d="M 62 118 Q 74 114 84 110" stroke="#4A7A2A" stroke-width="1.2" fill="none"/>
+  <path d="M 60 116 Q 59 98 58 80" stroke="#4A7A2A" stroke-width="2" fill="none"/>
+  <path d="M 58 98 Q 44 90 34 88" stroke="#2E7D32" stroke-width="1.5" fill="none"/>
+  <ellipse cx="32" cy="86" rx="8" ry="5" fill="#2E7D32" transform="rotate(-15,32,86)"/>
+  <ellipse cx="46" cy="92" rx="7" ry="4" fill="#388E3C"/>
+  <path d="M 58 86 Q 74 78 84 76" stroke="#388E3C" stroke-width="1.5" fill="none"/>
+  <ellipse cx="86" cy="74" rx="8" ry="5" fill="#43A047" transform="rotate(15,86,74)"/>
+  <ellipse cx="72" cy="80" rx="7" ry="4" fill="#388E3C"/>
+  <path d="M 56 56 Q 44 46 34 42 Q 36 50 46 52 Z" fill="#2E7D32"/>
+  <path d="M 60 54 Q 60 42 60 32 Q 64 34 62 46 Z" fill="#4CAF50"/>
+  <path d="M 64 56 Q 76 46 86 42 Q 84 50 74 52 Z" fill="#388E3C"/>
+  <path d="M 58 56 Q 46 60 42 70 Q 42 84 56 90 Q 60 92 64 90 Q 78 84 78 70 Q 74 60 62 56 Z" fill="#E53935"/>
+  <path d="M 58 56 Q 46 60 42 70 Q 42 84 56 90 Q 60 92 64 90 Q 78 84 78 70 Q 74 60 62 56 Z" fill="url(#strawGrad)" opacity="0.5"/>
+  <defs><radialGradient id="strawGrad" cx="35%" cy="30%"><stop offset="0%" stop-color="#FF8A80"/><stop offset="100%" stop-color="#B71C1C"/></radialGradient></defs>
+  <ellipse cx="52" cy="68" rx="1.5" ry="2" fill="#FFF8E1" opacity="0.9" transform="rotate(-10,52,68)"/>
+  <ellipse cx="60" cy="64" rx="1.5" ry="2" fill="#FFF8E1" opacity="0.9"/>
+  <ellipse cx="68" cy="68" rx="1.5" ry="2" fill="#FFF8E1" opacity="0.9" transform="rotate(10,68,68)"/>
+  <ellipse cx="50" cy="76" rx="1.5" ry="2" fill="#FFF8E1" opacity="0.9" transform="rotate(-5,50,76)"/>
+  <ellipse cx="60" cy="74" rx="1.5" ry="2" fill="#FFF8E1" opacity="0.9"/>
+  <ellipse cx="70" cy="76" rx="1.5" ry="2" fill="#FFF8E1" opacity="0.9" transform="rotate(5,70,76)"/>
+  <ellipse cx="55" cy="84" rx="1.5" ry="2" fill="#FFF8E1" opacity="0.9"/>
+  <ellipse cx="65" cy="84" rx="1.5" ry="2" fill="#FFF8E1" opacity="0.9"/>
+</svg></div>
+    </div>
+    <div style="opacity:0; animation: scalePop 1s ease-out 6.5s forwards;">
+      <div style="animation: float 2.5s ease-in-out 7.5s infinite;"><svg viewBox="0 0 120 140" width="260" height="293" xmlns="http://www.w3.org/2000/svg">
+  <ellipse cx="60" cy="134" rx="24" ry="3" fill="rgba(0,0,0,0.08)"/>
+  <path d="M 38 100 L 42 128 Q 60 132 78 128 L 82 100 Z" fill="#E8DCC8"/>
+  <ellipse cx="60" cy="100" rx="23" ry="5" fill="#cabeaa"/>
+  <ellipse cx="60" cy="100" rx="20" ry="3.5" fill="#5C4A2A"/>
+  <path d="M 60 100 Q 58 80 50 60 Q 44 48 42 38 Q 42 30 48 24 Q 55 20 65 22 Q 75 26 80 35" stroke="#4A7A3A" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+  <line x1="62" y1="100" x2="62" y2="30" stroke="#8B7355" stroke-width="1.2"/>
+  <g transform="translate(48,24)"><ellipse cx="-5" cy="0" rx="5" ry="4" fill="#E8B0D0" opacity="0.85"/><ellipse cx="5" cy="0" rx="5" ry="4" fill="#E8B0D0" opacity="0.85"/><ellipse cx="0" cy="-5" rx="4" ry="3.5" fill="#F0C8E0" opacity="0.8"/><ellipse cx="0" cy="5" rx="3.5" ry="4" fill="#F0C8E0" opacity="0.7"/><circle cx="0" cy="0" r="2.5" fill="#D090B8"/><circle cx="0" cy="0" r="1" fill="#C06090"/></g>
+  <g transform="translate(65,20)"><ellipse cx="-4.5" cy="0" rx="4.5" ry="3.5" fill="#E8B0D0" opacity="0.8"/><ellipse cx="4.5" cy="0" rx="4.5" ry="3.5" fill="#E8B0D0" opacity="0.8"/><circle cx="0" cy="0" r="2" fill="#D090B8"/></g>
+  <g transform="translate(76,32)"><ellipse cx="-3.5" cy="0" rx="3.5" ry="2.5" fill="#E8B0D0" opacity="0.7"/><ellipse cx="3.5" cy="0" rx="3.5" ry="2.5" fill="#E8B0D0" opacity="0.7"/></g>
+  <ellipse cx="80" cy="35" rx="2.5" ry="3.5" fill="#C8A0B8" opacity="0.5"/>
+  <path d="M 58 100 Q 40 92 25 88 Q 22 90 28 94 Q 38 96 56 100 Z" fill="#2E7D32"/>
+  <path d="M 62 100 Q 80 92 95 88 Q 98 90 92 94 Q 82 96 64 100 Z" fill="#388E3C"/>
+  <path d="M 56 100 Q 44 96 35 95 Q 34 97 40 99 Q 48 100 56 100 Z" fill="#43A047"/>
+</svg></div>
+    </div>
+  </div>
+
+  <!-- Punchline -->
+  <div style="opacity:0; animation: fadeInUp 0.5s ease-out 8.5s forwards;
+    font-size:22px;color:#9a8f84;font-style:italic;line-height:1.5">
+    the task was "take my meds"<br>but we don't talk about that</div>
+
+  <div style="opacity:0; animation: fadeIn 0.4s ease-out 10.0s forwards;
+    font-size:15px;color:#9a8f84;letter-spacing:2px">bloomday.app · free forever</div>
+</div></body></html>
