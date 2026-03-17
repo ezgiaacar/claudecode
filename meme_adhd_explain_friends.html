@@ -1,0 +1,249 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    width:1080px; height:1920px;
+    background:#5e7054;
+    font-family:'DM Sans',Arial,Helvetica,sans-serif;
+    overflow:hidden;
+  }
+  .footer {
+    position:absolute; bottom:40px; left:0; right:0;
+    text-align:center; z-index:100;
+  }
+  @keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+  @keyframes fadeInUp {
+    from { opacity:0; transform:translateY(60px); }
+    to { opacity:1; transform:translateY(0); }
+  }
+  @keyframes fadeInDown {
+    from { opacity:0; transform:translateY(-40px); }
+    to { opacity:1; transform:translateY(0); }
+  }
+  @keyframes scaleIn {
+    from { opacity:0; transform:scale(0.5); }
+    to { opacity:1; transform:scale(1); }
+  }
+  @keyframes scalePop {
+    0% { opacity:0; transform:scale(0.3); }
+    70% { opacity:1; transform:scale(1.15); }
+    100% { opacity:1; transform:scale(1); }
+  }
+  @keyframes shakeNo {
+    0%, 100% { transform:translateX(0); }
+    20% { transform:translateX(-12px); }
+    40% { transform:translateX(12px); }
+    60% { transform:translateX(-8px); }
+    80% { transform:translateX(8px); }
+  }
+  @keyframes gentleSway {
+    0%, 100% { transform:rotate(0deg); }
+    25% { transform:rotate(3deg); }
+    75% { transform:rotate(-3deg); }
+  }
+  @keyframes slideInLeft {
+    from { opacity:0; transform:translateX(-120px); }
+    to { opacity:1; transform:translateX(0); }
+  }
+  @keyframes slideInRight {
+    from { opacity:0; transform:translateX(120px); }
+    to { opacity:1; transform:translateX(0); }
+  }
+  @keyframes strikethrough {
+    from { width: 0; }
+    to { width: 100%; }
+  }
+  @keyframes dropIn {
+    0% { opacity:0; transform:translateY(-200px) rotate(-10deg); }
+    60% { opacity:1; transform:translateY(20px) rotate(2deg); }
+    80% { transform:translateY(-8px) rotate(-1deg); }
+    100% { opacity:1; transform:translateY(0) rotate(0deg); }
+  }
+  @keyframes float {
+    0%, 100% { transform:translateY(0); }
+    50% { transform:translateY(-15px); }
+  }
+  @keyframes glowPulse {
+    0%, 100% { text-shadow: 0 0 20px rgba(154,176,106,0.3); }
+    50% { text-shadow: 0 0 40px rgba(154,176,106,0.8), 0 0 80px rgba(154,176,106,0.4); }
+  }
+  @keyframes checkmark {
+    0% { opacity:0; transform:scale(0) rotate(-45deg); }
+    60% { opacity:1; transform:scale(1.3) rotate(5deg); }
+    100% { opacity:1; transform:scale(1) rotate(0deg); }
+  }
+  @keyframes slideUp {
+    from { opacity:0; transform:translateY(100px); }
+    to { opacity:1; transform:translateY(0); }
+  }
+  @keyframes crossOut {
+    from { text-decoration-color: transparent; }
+    to { text-decoration-color: currentColor; }
+  }
+  @keyframes bounceIn {
+    0% { opacity:0; transform:scale(0.3); }
+    50% { opacity:1; transform:scale(1.1); }
+    70% { transform:scale(0.9); }
+    100% { opacity:1; transform:scale(1); }
+  }
+  @keyframes pulseGrow {
+    0%, 100% { transform:scale(1); }
+    50% { transform:scale(1.05); }
+  }
+  @keyframes wiggle {
+    0%, 100% { transform:rotate(0); }
+    25% { transform:rotate(-5deg); }
+    75% { transform:rotate(5deg); }
+  }
+</style>
+</head><body style="position:relative">
+<div style="width:100%;height:100%;display:flex;flex-direction:column;
+  align-items:center;justify-content:space-between;padding:100px 40px 120px;
+  text-align:center">
+
+  <!-- Title -->
+  <div style="opacity:0; animation: fadeInDown 0.6s ease-out 0.3s forwards;
+    font-family:Georgia,'Times New Roman',serif;font-size:38px;
+    color:#f5f0e8;line-height:1.15">
+    how I explain bloomday<br>to neurotypical friends</div>
+
+  <!-- Chat bubbles -->
+  <div style="display:flex;flex-direction:column;gap:14px;width:100%">
+    
+            <div style="opacity:0; animation: slideInLeft 0.4s ease-out 1.5s forwards;
+              display:flex;gap:12px;width:100%;text-align:left;padding:0 40px">
+              <div style="font-size:20px;color:#8da880;font-weight:600;min-width:70px;
+                text-align:right">me:</div>
+              <div style="font-size:24px;color:#f5f0e8;line-height:1.5">it's a productivity app</div>
+            </div>
+            <div style="opacity:0; animation: slideInLeft 0.4s ease-out 2.5s forwards;
+              display:flex;gap:12px;width:100%;text-align:left;padding:0 40px">
+              <div style="font-size:20px;color:#8da880;font-weight:600;min-width:70px;
+                text-align:right">them:</div>
+              <div style="font-size:24px;color:#8da880;line-height:1.5">oh like todoist?</div>
+            </div>
+            <div style="opacity:0; animation: slideInLeft 0.4s ease-out 3.8s forwards;
+              display:flex;gap:12px;width:100%;text-align:left;padding:0 40px">
+              <div style="font-size:20px;color:#8da880;font-weight:600;min-width:70px;
+                text-align:right">me:</div>
+              <div style="font-size:24px;color:#f5f0e8;line-height:1.5">no, you grow plants</div>
+            </div>
+            <div style="opacity:0; animation: slideInLeft 0.4s ease-out 4.8s forwards;
+              display:flex;gap:12px;width:100%;text-align:left;padding:0 40px">
+              <div style="font-size:20px;color:#8da880;font-weight:600;min-width:70px;
+                text-align:right">them:</div>
+              <div style="font-size:24px;color:#8da880;line-height:1.5">...farmville?</div>
+            </div>
+            <div style="opacity:0; animation: slideInLeft 0.4s ease-out 6.0s forwards;
+              display:flex;gap:12px;width:100%;text-align:left;padding:0 40px">
+              <div style="font-size:20px;color:#8da880;font-weight:600;min-width:70px;
+                text-align:right">me:</div>
+              <div style="font-size:24px;color:#f5f0e8;line-height:1.5">NO, you complete tasks and—</div>
+            </div>
+            <div style="opacity:0; animation: slideInLeft 0.4s ease-out 7.0s forwards;
+              display:flex;gap:12px;width:100%;text-align:left;padding:0 40px">
+              <div style="font-size:20px;color:#8da880;font-weight:600;min-width:70px;
+                text-align:right">them:</div>
+              <div style="font-size:24px;color:#8da880;line-height:1.5">sounds like a game</div>
+            </div>
+            <div style="opacity:0; animation: slideInLeft 0.4s ease-out 8.5s forwards;
+              display:flex;gap:12px;width:100%;text-align:left;padding:0 40px">
+              <div style="font-size:20px;color:#8da880;font-weight:600;min-width:70px;
+                text-align:right">me:</div>
+              <div style="font-size:24px;color:#d4e8a8;line-height:1.5">
+                ok so imagine you have ADHD and<br>
+                everything feels impossible but then<br>
+                you check off "drink water" and a<br>
+                cherry blossom grows and suddenly<br>
+                you feel like you can do anything</div>
+            </div>
+  </div>
+
+  <!-- Their response -->
+  <div style="opacity:0; animation: fadeIn 0.6s ease-out 11.0s forwards;
+    display:flex;gap:12px;width:100%;text-align:left;padding:0 40px">
+    <div style="font-size:20px;color:#8da880;font-weight:600;min-width:70px;
+      text-align:right">them:</div>
+    <div style="font-size:24px;color:#8da880;line-height:1.5">...are you okay?</div>
+  </div>
+
+  <!-- Plant + final -->
+  <div style="opacity:0; animation: scalePop 0.8s ease-out 12.0s forwards;">
+    <div style="animation: gentleSway 3s ease-in-out 13s infinite;">
+      <svg viewBox="0 0 120 140" width="220" height="248" xmlns="http://www.w3.org/2000/svg">
+  <path d="M 28 124 Q 34 90 44 65 Q 54 45 68 30 Q 78 22 92 18" stroke="#6D4C41" stroke-width="4" fill="none" stroke-linecap="round"/>
+  <path d="M 54 50 Q 40 42 28 40" stroke="#6D4C41" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <path d="M 68 36 Q 72 50 76 60" stroke="#6D4C41" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+  <ellipse cx="94.0" cy="18.0" rx="2.5" ry="4" fill="#F8BBD0" transform="rotate(0,94.0,18.0)" opacity="0.8"/>
+  <ellipse cx="91.2" cy="21.8" rx="2.5" ry="4" fill="#F8BBD0" transform="rotate(72,91.2,21.8)" opacity="0.8"/>
+  <ellipse cx="86.8" cy="20.4" rx="2.5" ry="4" fill="#F8BBD0" transform="rotate(144,86.8,20.4)" opacity="0.8"/>
+  <ellipse cx="86.8" cy="15.6" rx="2.5" ry="4" fill="#F8BBD0" transform="rotate(216,86.8,15.6)" opacity="0.8"/>
+  <ellipse cx="91.2" cy="14.2" rx="2.5" ry="4" fill="#F8BBD0" transform="rotate(288,91.2,14.2)" opacity="0.8"/>
+  <circle cx="90" cy="18" r="2" fill="#F48FB1" opacity="0.6"/>
+  <ellipse cx="86.0" cy="24.0" rx="2.5" ry="4" fill="#F8BBD0" transform="rotate(0,86.0,24.0)" opacity="0.8"/>
+  <ellipse cx="83.2" cy="27.8" rx="2.5" ry="4" fill="#F8BBD0" transform="rotate(72,83.2,27.8)" opacity="0.8"/>
+  <ellipse cx="78.8" cy="26.4" rx="2.5" ry="4" fill="#F8BBD0" transform="rotate(144,78.8,26.4)" opacity="0.8"/>
+  <ellipse cx="78.8" cy="21.6" rx="2.5" ry="4" fill="#F8BBD0" transform="rotate(216,78.8,21.6)" opacity="0.8"/>
+  <ellipse cx="83.2" cy="20.2" rx="2.5" ry="4" fill="#F8BBD0" transform="rotate(288,83.2,20.2)" opacity="0.8"/>
+  <circle cx="82" cy="24" r="2" fill="#F48FB1" opacity="0.6"/>
+  <ellipse cx="76.0" cy="32.0" rx="2.5" ry="4" fill="#F8BBD0" transform="rotate(0,76.0,32.0)" opacity="0.8"/>
+  <ellipse cx="73.2" cy="35.8" rx="2.5" ry="4" fill="#F8BBD0" transform="rotate(72,73.2,35.8)" opacity="0.8"/>
+  <ellipse cx="68.8" cy="34.4" rx="2.5" ry="4" fill="#F8BBD0" transform="rotate(144,68.8,34.4)" opacity="0.8"/>
+  <ellipse cx="68.8" cy="29.6" rx="2.5" ry="4" fill="#F8BBD0" transform="rotate(216,68.8,29.6)" opacity="0.8"/>
+  <ellipse cx="73.2" cy="28.2" rx="2.5" ry="4" fill="#F8BBD0" transform="rotate(288,73.2,28.2)" opacity="0.8"/>
+  <circle cx="72" cy="32" r="2" fill="#F48FB1" opacity="0.6"/>
+  <ellipse cx="66.0" cy="42.0" rx="2.5" ry="4" fill="#F8BBD0" transform="rotate(0,66.0,42.0)" opacity="0.8"/>
+  <ellipse cx="63.2" cy="45.8" rx="2.5" ry="4" fill="#F8BBD0" transform="rotate(72,63.2,45.8)" opacity="0.8"/>
+  <ellipse cx="58.8" cy="44.4" rx="2.5" ry="4" fill="#F8BBD0" transform="rotate(144,58.8,44.4)" opacity="0.8"/>
+  <ellipse cx="58.8" cy="39.6" rx="2.5" ry="4" fill="#F8BBD0" transform="rotate(216,58.8,39.6)" opacity="0.8"/>
+  <ellipse cx="63.2" cy="38.2" rx="2.5" ry="4" fill="#F8BBD0" transform="rotate(288,63.2,38.2)" opacity="0.8"/>
+  <circle cx="62" cy="42" r="2" fill="#F48FB1" opacity="0.6"/>
+  <ellipse cx="54.0" cy="52.0" rx="2.5" ry="4" fill="#F8BBD0" transform="rotate(0,54.0,52.0)" opacity="0.8"/>
+  <ellipse cx="51.2" cy="55.8" rx="2.5" ry="4" fill="#F8BBD0" transform="rotate(72,51.2,55.8)" opacity="0.8"/>
+  <ellipse cx="46.8" cy="54.4" rx="2.5" ry="4" fill="#F8BBD0" transform="rotate(144,46.8,54.4)" opacity="0.8"/>
+  <ellipse cx="46.8" cy="49.6" rx="2.5" ry="4" fill="#F8BBD0" transform="rotate(216,46.8,49.6)" opacity="0.8"/>
+  <ellipse cx="51.2" cy="48.2" rx="2.5" ry="4" fill="#F8BBD0" transform="rotate(288,51.2,48.2)" opacity="0.8"/>
+  <circle cx="50" cy="52" r="2" fill="#F48FB1" opacity="0.6"/>
+  <ellipse cx="44.0" cy="44.0" rx="2.5" ry="4" fill="#F8BBD0" transform="rotate(0,44.0,44.0)" opacity="0.8"/>
+  <ellipse cx="41.2" cy="47.8" rx="2.5" ry="4" fill="#F8BBD0" transform="rotate(72,41.2,47.8)" opacity="0.8"/>
+  <ellipse cx="36.8" cy="46.4" rx="2.5" ry="4" fill="#F8BBD0" transform="rotate(144,36.8,46.4)" opacity="0.8"/>
+  <ellipse cx="36.8" cy="41.6" rx="2.5" ry="4" fill="#F8BBD0" transform="rotate(216,36.8,41.6)" opacity="0.8"/>
+  <ellipse cx="41.2" cy="40.2" rx="2.5" ry="4" fill="#F8BBD0" transform="rotate(288,41.2,40.2)" opacity="0.8"/>
+  <circle cx="40" cy="44" r="2" fill="#F48FB1" opacity="0.6"/>
+  <ellipse cx="34.0" cy="40.0" rx="2.5" ry="4" fill="#F8BBD0" transform="rotate(0,34.0,40.0)" opacity="0.8"/>
+  <ellipse cx="31.2" cy="43.8" rx="2.5" ry="4" fill="#F8BBD0" transform="rotate(72,31.2,43.8)" opacity="0.8"/>
+  <ellipse cx="26.8" cy="42.4" rx="2.5" ry="4" fill="#F8BBD0" transform="rotate(144,26.8,42.4)" opacity="0.8"/>
+  <ellipse cx="26.8" cy="37.6" rx="2.5" ry="4" fill="#F8BBD0" transform="rotate(216,26.8,37.6)" opacity="0.8"/>
+  <ellipse cx="31.2" cy="36.2" rx="2.5" ry="4" fill="#F8BBD0" transform="rotate(288,31.2,36.2)" opacity="0.8"/>
+  <circle cx="30" cy="40" r="2" fill="#F48FB1" opacity="0.6"/>
+  <ellipse cx="80.0" cy="58.0" rx="2.5" ry="4" fill="#F8BBD0" transform="rotate(0,80.0,58.0)" opacity="0.8"/>
+  <ellipse cx="77.2" cy="61.8" rx="2.5" ry="4" fill="#F8BBD0" transform="rotate(72,77.2,61.8)" opacity="0.8"/>
+  <ellipse cx="72.8" cy="60.4" rx="2.5" ry="4" fill="#F8BBD0" transform="rotate(144,72.8,60.4)" opacity="0.8"/>
+  <ellipse cx="72.8" cy="55.6" rx="2.5" ry="4" fill="#F8BBD0" transform="rotate(216,72.8,55.6)" opacity="0.8"/>
+  <ellipse cx="77.2" cy="54.2" rx="2.5" ry="4" fill="#F8BBD0" transform="rotate(288,77.2,54.2)" opacity="0.8"/>
+  <circle cx="76" cy="58" r="2" fill="#F48FB1" opacity="0.6"/>
+  <ellipse cx="98.0" cy="22.0" rx="2.5" ry="4" fill="#F8BBD0" transform="rotate(0,98.0,22.0)" opacity="0.8"/>
+  <ellipse cx="95.2" cy="25.8" rx="2.5" ry="4" fill="#F8BBD0" transform="rotate(72,95.2,25.8)" opacity="0.8"/>
+  <ellipse cx="90.8" cy="24.4" rx="2.5" ry="4" fill="#F8BBD0" transform="rotate(144,90.8,24.4)" opacity="0.8"/>
+  <ellipse cx="90.8" cy="19.6" rx="2.5" ry="4" fill="#F8BBD0" transform="rotate(216,90.8,19.6)" opacity="0.8"/>
+  <ellipse cx="95.2" cy="18.2" rx="2.5" ry="4" fill="#F8BBD0" transform="rotate(288,95.2,18.2)" opacity="0.8"/>
+  <circle cx="94" cy="22" r="2" fill="#F48FB1" opacity="0.6"/>
+  <ellipse cx="50.0" cy="58.0" rx="2.5" ry="4" fill="#F8BBD0" transform="rotate(0,50.0,58.0)" opacity="0.8"/>
+  <ellipse cx="47.2" cy="61.8" rx="2.5" ry="4" fill="#F8BBD0" transform="rotate(72,47.2,61.8)" opacity="0.8"/>
+  <ellipse cx="42.8" cy="60.4" rx="2.5" ry="4" fill="#F8BBD0" transform="rotate(144,42.8,60.4)" opacity="0.8"/>
+  <ellipse cx="42.8" cy="55.6" rx="2.5" ry="4" fill="#F8BBD0" transform="rotate(216,42.8,55.6)" opacity="0.8"/>
+  <ellipse cx="47.2" cy="54.2" rx="2.5" ry="4" fill="#F8BBD0" transform="rotate(288,47.2,54.2)" opacity="0.8"/>
+  <circle cx="46" cy="58" r="2" fill="#F48FB1" opacity="0.6"/>
+</svg>
+    </div>
+  </div>
+
+  <div style="opacity:0; animation: fadeIn 0.5s ease-out 13.5s forwards;
+    font-size:24px;color:#d4e8a8;font-style:italic">
+    I've never been better.</div>
+</div>
+
+    <div class="footer" style="opacity:0; animation: fadeIn 0.4s ease-out 14.5s forwards;">
+      <div style="font-size:15px;color:#8da880;letter-spacing:2px">
+        bloomday.app · free forever</div>
+    </div></body></html>
