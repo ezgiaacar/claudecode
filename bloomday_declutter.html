@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    width:1080px; height:1920px;
+    background:#FAFAF7;
+    font-family:'DM Sans',system-ui,-apple-system,Arial,sans-serif;
+    overflow:hidden;
+    color:#2A2A2A;
+  }
+
+  /* ── Animations ── */
+  @keyframes fadeIn {
+    from { opacity:0; } to { opacity:1; }
+  }
+  @keyframes fadeInUp {
+    from { opacity:0; transform:translateY(40px); }
+    to { opacity:1; transform:translateY(0); }
+  }
+  @keyframes strikeAndFade {
+    0%   { opacity:1; }
+    40%  { opacity:1; }
+    100% { opacity:0; transform:scale(0.95); }
+  }
+  @keyframes strikeLine {
+    from { width:0; }
+    to   { width:100%; }
+  }
+  @keyframes breathe {
+    0%,100% { transform:scale(1); }
+    50%     { transform:scale(1.02); }
+  }
+  @keyframes gentleSway {
+    0%,100% { transform:rotate(0deg); }
+    25%     { transform:rotate(2deg); }
+    75%     { transform:rotate(-2deg); }
+  }
+  @keyframes softGlow {
+    0%,100% { opacity:0.6; }
+    50%     { opacity:1; }
+  }
+  @keyframes expandSpace {
+    from { padding:20px 32px; }
+    to   { padding:28px 32px; }
+  }
+
+  /* ── Layout ── */
+  .screen {
+    width:100%; height:100%;
+    display:flex; flex-direction:column;
+    position:relative;
+  }
+
+  /* ── Fake App Chrome ── */
+  .app-header {
+    background:#FAFAF7;
+    padding:40px 48px 24px;
+    display:flex; align-items:center; justify-content:space-between;
+    border-bottom:1px solid #E8E8E4;
+  }
+  .app-title {
+    font-size:28px; font-weight:700; color:#2A2A2A;
+  }
+  .notif-bell {
+    position:relative; font-size:28px; color:#888;
+  }
+  .notif-badge {
+    position:absolute; top:-6px; right:-10px;
+    background:#D94040; color:white; font-size:13px; font-weight:700;
+    width:22px; height:22px; border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+  }
+
+  /* ── UI Feature Blocks ── */
+  .feature-block {
+    position:relative;
+    padding:20px 32px;
+    border-bottom:1px solid #EEECE8;
+    transition: padding 0.8s ease;
+  }
+  .feature-block .strike {
+    position:absolute; top:50%; left:24px; height:3px;
+    background:#3D6B4F; border-radius:2px; width:0; z-index:10;
+  }
+
+  /* Priority labels */
+  .priority-row { display:flex; gap:10px; margin-top:8px; }
+  .p-tag {
+    padding:6px 18px; border-radius:8px; font-size:15px; font-weight:600; color:white;
+  }
+  .p-red { background:#D94040; }
+  .p-yellow { background:#E8A825; }
+  .p-green { background:#3D6B4F; }
+  .p-gray { background:#AAAAAA; }
+
+  /* Streak */
+  .streak-box {
+    display:flex; align-items:center; gap:14px; margin-top:6px;
+  }
+  .streak-flame { font-size:32px; }
+  .streak-num { font-size:36px; font-weight:800; color:#E8A825; }
+  .streak-label { font-size:16px; color:#888; }
+
+  /* Stats dashboard */
+  .stats-grid { display:flex; gap:16px; margin-top:10px; }
+  .stat-card {
+    flex:1; background:#F0EFEB; border-radius:12px; padding:14px; text-align:center;
+  }
+  .stat-num { font-size:28px; font-weight:800; color:#2A2A2A; }
+  .stat-label { font-size:12px; color:#888; margin-top:2px; }
+  .stat-bar {
+    height:4px; background:#DDD; border-radius:2px; margin-top:8px; overflow:hidden;
+  }
+  .stat-bar-fill { height:100%; border-radius:2px; }
+
+  /* Leaderboard */
+  .lb-row { display:flex; align-items:center; gap:12px; margin-top:6px; }
+  .lb-avatar {
+    width:32px; height:32px; border-radius:50%; background:#DDD;
+  }
+  .lb-name { font-size:15px; color:#555; flex:1; }
+  .lb-score { font-size:15px; font-weight:700; color:#2A2A2A; }
+
+  /* Badges */
+  .badge-grid { display:flex; gap:8px; flex-wrap:wrap; margin-top:8px; }
+  .badge-icon {
+    width:36px; height:36px; border-radius:50%; background:#E8E8E4;
+    display:flex; align-items:center; justify-content:center;
+    font-size:16px;
+  }
+
+  /* Nested menus */
+  .menu-nest { margin-top:6px; }
+  .menu-item {
+    padding:6px 0 6px 0; font-size:15px; color:#555;
+    display:flex; align-items:center; gap:8px;
+  }
+  .menu-item.l2 { padding-left:24px; font-size:14px; color:#888; }
+  .menu-item.l3 { padding-left:48px; font-size:13px; color:#AAA; }
+  .menu-arrow { font-size:12px; color:#BBB; }
+
+  /* Sorting */
+  .sort-row { display:flex; gap:8px; margin-top:8px; flex-wrap:wrap; }
+  .sort-chip {
+    padding:6px 16px; border-radius:16px; background:#F0EFEB;
+    font-size:14px; color:#666;
+  }
+  .sort-chip.active { background:#3D6B4F; color:white; }
+
+  /* ── Reason text ── */
+  .reason-text {
+    position:fixed; top:50%; left:50%; transform:translate(-50%,-50%);
+    font-size:36px; font-weight:600; color:#3D6B4F;
+    text-align:center; z-index:100;
+    opacity:0; pointer-events:none;
+    line-height:1.3;
+  }
+
+  /* ── Final state ── */
+  .final-state {
+    position:absolute; top:0; left:0; width:100%; height:100%;
+    display:flex; flex-direction:column; align-items:center;
+    justify-content:center; gap:40px;
+    opacity:0; z-index:50;
+    background:#FAFAF7;
+    padding:80px 60px;
+  }
+  .final-task-list {
+    width:100%; max-width:700px;
+    display:flex; flex-direction:column; gap:20px;
+  }
+  .final-task {
+    display:flex; align-items:center; gap:20px;
+    padding:24px 28px; background:#F5F3EF; border-radius:16px;
+    font-size:28px; color:#2A2A2A;
+  }
+  .final-check {
+    width:32px; height:32px; border-radius:50%;
+    border:2.5px solid #3D6B4F; flex-shrink:0;
+  }
+  .final-garden {
+    display:flex; gap:20px; align-items:flex-end;
+    justify-content:center; margin-top:20px;
+  }
+  .final-tagline {
+    font-family:Georgia,'Times New Roman',serif;
+    font-size:40px; color:#2A2A2A; text-align:center;
+    line-height:1.25; max-width:800px;
+  }
+  .final-tagline em {
+    color:#3D6B4F; font-style:italic;
+  }
+  .final-sub {
+    font-size:16px; color:#999; letter-spacing:2px;
+  }
+
+  /* ── Timing: each feature removal ── */
+  /* Phase 1: Show cluttered app (0–2s) */
+  /* Phase 2: Remove features (2s–10.4s), 0.8s per step, 1.05s gap */
+
+  /* 1. Priority colors — remove at 2.0s */
+  #feat-priority .strike { animation: strikeLine 0.5s ease-out 2.0s forwards; }
+  #feat-priority { animation: strikeAndFade 1.0s ease-out 2.0s forwards; }
+  #reason-1 { animation: fadeIn 0.3s ease-out 2.0s forwards, fadeIn 0.3s ease-out 2.8s reverse forwards; }
+
+  /* 2. Streak — remove at 3.05s */
+  #feat-streak .strike { animation: strikeLine 0.5s ease-out 3.05s forwards; }
+  #feat-streak { animation: strikeAndFade 1.0s ease-out 3.05s forwards; }
+  #reason-2 { animation: fadeIn 0.3s ease-out 3.05s forwards, fadeIn 0.3s ease-out 3.85s reverse forwards; }
+
+  /* 3. Stats — remove at 4.1s */
+  #feat-stats .strike { animation: strikeLine 0.5s ease-out 4.1s forwards; }
+  #feat-stats { animation: strikeAndFade 1.0s ease-out 4.1s forwards; }
+  #reason-3 { animation: fadeIn 0.3s ease-out 4.1s forwards, fadeIn 0.3s ease-out 4.9s reverse forwards; }
+
+  /* 4. Leaderboard — remove at 5.15s */
+  #feat-lb .strike { animation: strikeLine 0.5s ease-out 5.15s forwards; }
+  #feat-lb { animation: strikeAndFade 1.0s ease-out 5.15s forwards; }
+  #reason-4 { animation: fadeIn 0.3s ease-out 5.15s forwards, fadeIn 0.3s ease-out 5.95s reverse forwards; }
+
+  /* 5. Badges — remove at 6.2s */
+  #feat-badges .strike { animation: strikeLine 0.5s ease-out 6.2s forwards; }
+  #feat-badges { animation: strikeAndFade 1.0s ease-out 6.2s forwards; }
+  #reason-5 { animation: fadeIn 0.3s ease-out 6.2s forwards, fadeIn 0.3s ease-out 7.0s reverse forwards; }
+
+  /* 6. Notifications — remove at 7.25s */
+  #feat-notif .strike { animation: strikeLine 0.5s ease-out 7.25s forwards; }
+  #feat-notif { animation: strikeAndFade 1.0s ease-out 7.25s forwards; }
+  .notif-bell { animation: strikeAndFade 1.0s ease-out 7.25s forwards; }
+  #reason-6 { animation: fadeIn 0.3s ease-out 7.25s forwards, fadeIn 0.3s ease-out 8.05s reverse forwards; }
+
+  /* 7. Nested menus — remove at 8.3s */
+  #feat-menu .strike { animation: strikeLine 0.5s ease-out 8.3s forwards; }
+  #feat-menu { animation: strikeAndFade 1.0s ease-out 8.3s forwards; }
+  #reason-7 { animation: fadeIn 0.3s ease-out 8.3s forwards, fadeIn 0.3s ease-out 9.1s reverse forwards; }
+
+  /* 8. Sorting — remove at 9.35s */
+  #feat-sort .strike { animation: strikeLine 0.5s ease-out 9.35s forwards; }
+  #feat-sort { animation: strikeAndFade 1.0s ease-out 9.35s forwards; }
+  #reason-8 { animation: fadeIn 0.3s ease-out 9.35s forwards, fadeIn 0.3s ease-out 10.15s reverse forwards; }
+
+  /* Phase 3: Final reveal at 11s */
+  .final-state { animation: fadeIn 1.2s ease-out 11.0s forwards; }
+  .final-task:nth-child(1) { opacity:0; animation: fadeInUp 0.5s ease-out 11.5s forwards; }
+  .final-task:nth-child(2) { opacity:0; animation: fadeInUp 0.5s ease-out 11.8s forwards; }
+  .final-task:nth-child(3) { opacity:0; animation: fadeInUp 0.5s ease-out 12.1s forwards; }
+  .final-garden > div:nth-child(1) { opacity:0; animation: fadeInUp 0.6s ease-out 12.6s forwards; }
+  .final-garden > div:nth-child(2) { opacity:0; animation: fadeInUp 0.6s ease-out 12.8s forwards; }
+  .final-garden > div:nth-child(3) { opacity:0; animation: fadeInUp 0.6s ease-out 13.0s forwards; }
+  .final-garden > div:nth-child(4) { opacity:0; animation: fadeInUp 0.6s ease-out 13.2s forwards; }
+  .final-tagline { opacity:0; animation: fadeInUp 0.8s ease-out 13.8s forwards; }
+  .final-sub { opacity:0; animation: fadeIn 0.5s ease-out 14.8s forwards; }
+</style>
+</head>
+<body>
+<div class="screen">
+
+  <!-- ═══ APP HEADER ═══ -->
+  <div class="app-header">
+    <div class="app-title">TaskFlow Pro+</div>
+    <div class="notif-bell">
+      &#x1F514;
+      <div class="notif-badge">5</div>
+    </div>
+  </div>
+
+  <!-- ═══ FEATURE BLOCKS (cluttered state) ═══ -->
+
+  <!-- 1. Priority colors -->
+  <div class="feature-block" id="feat-priority">
+    <div class="strike"></div>
+    <div style="font-size:15px;color:#888;font-weight:600;letter-spacing:1px">PRIORITY</div>
+    <div class="priority-row">
+      <div class="p-tag p-red">Urgent</div>
+      <div class="p-tag p-yellow">High</div>
+      <div class="p-tag p-green">Medium</div>
+      <div class="p-tag p-gray">Low</div>
+    </div>
+  </div>
+
+  <!-- 2. Streak counter -->
+  <div class="feature-block" id="feat-streak">
+    <div class="strike"></div>
+    <div class="streak-box">
+      <div class="streak-flame">&#x1F525;</div>
+      <div>
+        <div style="display:flex;align-items:baseline;gap:8px">
+          <div class="streak-num">47</div>
+          <div class="streak-label">day streak</div>
+        </div>
+        <div style="font-size:13px;color:#AAA">Don't break the chain!</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. Statistics dashboard -->
+  <div class="feature-block" id="feat-stats">
+    <div class="strike"></div>
+    <div style="font-size:15px;color:#888;font-weight:600;letter-spacing:1px">YOUR STATS</div>
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-num">847</div>
+        <div class="stat-label">Tasks Done</div>
+        <div class="stat-bar"><div class="stat-bar-fill" style="width:72%;background:#3D6B4F"></div></div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">6.2h</div>
+        <div class="stat-label">Avg Focus</div>
+        <div class="stat-bar"><div class="stat-bar-fill" style="width:55%;background:#E8A825"></div></div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">91%</div>
+        <div class="stat-label">Completion</div>
+        <div class="stat-bar"><div class="stat-bar-fill" style="width:91%;background:#D94040"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4. Leaderboard -->
+  <div class="feature-block" id="feat-lb">
+    <div class="strike"></div>
+    <div style="font-size:15px;color:#888;font-weight:600;letter-spacing:1px">LEADERBOARD</div>
+    <div class="lb-row">
+      <div style="font-size:18px;font-weight:700;color:#E8A825;width:24px">1</div>
+      <div class="lb-avatar" style="background:#D4E8A8"></div>
+      <div class="lb-name">Sarah K.</div>
+      <div class="lb-score">2,847 pts</div>
+    </div>
+    <div class="lb-row">
+      <div style="font-size:18px;font-weight:700;color:#AAA;width:24px">2</div>
+      <div class="lb-avatar" style="background:#FFD7B5"></div>
+      <div class="lb-name">Marcus T.</div>
+      <div class="lb-score">2,103 pts</div>
+    </div>
+    <div class="lb-row">
+      <div style="font-size:18px;font-weight:700;color:#CD7F32;width:24px">3</div>
+      <div class="lb-avatar" style="background:#B5D4FF"></div>
+      <div class="lb-name">You</div>
+      <div class="lb-score" style="color:#D94040">891 pts</div>
+    </div>
+  </div>
+
+  <!-- 5. Badges -->
+  <div class="feature-block" id="feat-badges">
+    <div class="strike"></div>
+    <div style="font-size:15px;color:#888;font-weight:600;letter-spacing:1px">BADGES (3/12)</div>
+    <div class="badge-grid">
+      <div class="badge-icon" style="background:#FFE0B2">&#x1F31F;</div>
+      <div class="badge-icon" style="background:#C8E6C9">&#x1F3AF;</div>
+      <div class="badge-icon" style="background:#BBDEFB">&#x26A1;</div>
+      <div class="badge-icon">&#x1F512;</div>
+      <div class="badge-icon">&#x1F512;</div>
+      <div class="badge-icon">&#x1F512;</div>
+      <div class="badge-icon">&#x1F512;</div>
+      <div class="badge-icon">&#x1F512;</div>
+      <div class="badge-icon">&#x1F512;</div>
+      <div class="badge-icon">&#x1F512;</div>
+      <div class="badge-icon">&#x1F512;</div>
+      <div class="badge-icon">&#x1F512;</div>
+    </div>
+  </div>
+
+  <!-- 6. Notification settings (paired with bell) -->
+  <div class="feature-block" id="feat-notif">
+    <div class="strike"></div>
+    <div style="font-size:15px;color:#888;font-weight:600;letter-spacing:1px">NOTIFICATIONS</div>
+    <div style="margin-top:6px;display:flex;flex-direction:column;gap:6px">
+      <div style="display:flex;justify-content:space-between;align-items:center">
+        <span style="font-size:15px;color:#555">Daily reminder</span>
+        <div style="width:44px;height:24px;background:#3D6B4F;border-radius:12px;position:relative">
+          <div style="width:20px;height:20px;background:white;border-radius:50%;position:absolute;right:2px;top:2px"></div>
+        </div>
+      </div>
+      <div style="display:flex;justify-content:space-between;align-items:center">
+        <span style="font-size:15px;color:#555">Streak at risk</span>
+        <div style="width:44px;height:24px;background:#3D6B4F;border-radius:12px;position:relative">
+          <div style="width:20px;height:20px;background:white;border-radius:50%;position:absolute;right:2px;top:2px"></div>
+        </div>
+      </div>
+      <div style="display:flex;justify-content:space-between;align-items:center">
+        <span style="font-size:15px;color:#555">Friend activity</span>
+        <div style="width:44px;height:24px;background:#3D6B4F;border-radius:12px;position:relative">
+          <div style="width:20px;height:20px;background:white;border-radius:50%;position:absolute;right:2px;top:2px"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 7. Nested navigation -->
+  <div class="feature-block" id="feat-menu">
+    <div class="strike"></div>
+    <div style="font-size:15px;color:#888;font-weight:600;letter-spacing:1px">NAVIGATION</div>
+    <div class="menu-nest">
+      <div class="menu-item"><span class="menu-arrow">&#x25BE;</span> My Tasks</div>
+      <div class="menu-item l2"><span class="menu-arrow">&#x25BE;</span> Work</div>
+      <div class="menu-item l3">Q1 Goals</div>
+      <div class="menu-item l3">Sprint 24</div>
+      <div class="menu-item l2"><span class="menu-arrow">&#x25B8;</span> Personal</div>
+      <div class="menu-item l2"><span class="menu-arrow">&#x25B8;</span> Someday</div>
+    </div>
+  </div>
+
+  <!-- 8. Sorting options -->
+  <div class="feature-block" id="feat-sort">
+    <div class="strike"></div>
+    <div style="font-size:15px;color:#888;font-weight:600;letter-spacing:1px">SORT BY</div>
+    <div class="sort-row">
+      <div class="sort-chip active">Priority</div>
+      <div class="sort-chip">Due date</div>
+      <div class="sort-chip">Created</div>
+      <div class="sort-chip">Alphabetical</div>
+      <div class="sort-chip">Custom order</div>
+      <div class="sort-chip">Energy level</div>
+    </div>
+  </div>
+
+  <!-- ═══ REASON TEXTS (float over center) ═══ -->
+  <div class="reason-text" id="reason-1">You don't need<br>color-coded anxiety</div>
+  <div class="reason-text" id="reason-2">Shame<br>isn't motivation</div>
+  <div class="reason-text" id="reason-3">You're not<br>a KPI</div>
+  <div class="reason-text" id="reason-4">Productivity isn't<br>a competition</div>
+  <div class="reason-text" id="reason-5">You don't need<br>47 badges</div>
+  <div class="reason-text" id="reason-6">You know when<br>you missed a day</div>
+  <div class="reason-text" id="reason-7">If you get lost in the app,<br>the app failed</div>
+  <div class="reason-text" id="reason-8">There are 3 tasks.<br>They don't need sorting</div>
+
+  <!-- ═══ FINAL CLEAN STATE ═══ -->
+  <div class="final-state">
+    <div style="font-size:18px;color:#999;letter-spacing:3px;text-transform:uppercase">today</div>
+
+    <div class="final-task-list">
+      <div class="final-task">
+        <div class="final-check"></div>
+        drink water
+      </div>
+      <div class="final-task">
+        <div class="final-check"></div>
+        reply to one email
+      </div>
+      <div class="final-task">
+        <div class="final-check"></div>
+        take meds
+      </div>
+    </div>
+
+    <div class="final-garden">
+      <div style="animation: gentleSway 3s ease-in-out infinite;">
+        <svg viewBox="0 0 120 140" width="100" height="114" xmlns="http://www.w3.org/2000/svg">
+          <ellipse cx="60" cy="134" rx="24" ry="3" fill="rgba(0,0,0,0.08)"/>
+          <path d="M 38 100 L 42 128 Q 60 132 78 128 L 82 100 Z" fill="#8B7355"/>
+          <ellipse cx="60" cy="100" rx="23" ry="5" fill="#6d5537"/>
+          <ellipse cx="60" cy="100" rx="20" ry="3.5" fill="#5C4A2A"/>
+          <path d="M 50 100 Q 48 65 46 25 Q 47 20 50 18 Q 53 20 52 25 Q 52 65 51 100 Z" fill="#2E7D32"/>
+          <path d="M 56 100 Q 55 60 53 22 Q 55 16 58 14 Q 61 16 60 22 Q 58 60 57 100 Z" fill="#1B5E20"/>
+          <path d="M 62 100 Q 63 55 65 20 Q 66 15 68 13 Q 71 15 70 20 Q 68 55 67 100 Z" fill="#388E3C"/>
+          <path d="M 45 100 Q 43 72 40 38 Q 41 33 43 31 Q 46 33 45 38 Q 44 72 44 100 Z" fill="#43A047"/>
+          <path d="M 70 100 Q 72 68 74 35 Q 75 30 77 28 Q 79 30 78 35 Q 76 68 75 100 Z" fill="#2E7D32"/>
+        </svg>
+      </div>
+      <div style="animation: gentleSway 2.5s ease-in-out 0.3s infinite;">
+        <svg viewBox="0 0 120 140" width="110" height="126" xmlns="http://www.w3.org/2000/svg">
+          <ellipse cx="60" cy="134" rx="24" ry="3" fill="rgba(0,0,0,0.08)"/>
+          <path d="M 38 100 L 42 128 Q 60 132 78 128 L 82 100 Z" fill="#B8714E"/>
+          <ellipse cx="60" cy="100" rx="23" ry="5" fill="#9a5330"/>
+          <ellipse cx="60" cy="100" rx="20" ry="3.5" fill="#5C4A2A"/>
+          <path d="M 60 98 Q 58 75 55 55" stroke="#3A6B2A" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+          <path d="M 58 85 Q 45 70 35 60" stroke="#3A6B2A" stroke-width="2" fill="none" stroke-linecap="round"/>
+          <path d="M 60 80 Q 72 65 80 52" stroke="#3A6B2A" stroke-width="2" fill="none" stroke-linecap="round"/>
+          <path d="M 55 55 Q 42 38 30 35 Q 22 36 20 44 Q 18 52 25 58 Q 30 60 36 56 Q 40 55 44 60 Q 50 62 55 55 Z" fill="#2E7D32"/>
+          <ellipse cx="35" cy="47" rx="3" ry="2.5" fill="#F5F0E8" opacity="0.7"/>
+          <path d="M 80 52 Q 92 40 95 32 Q 94 24 86 22 Q 78 24 75 32 Q 77 44 80 52 Z" fill="#388E3C"/>
+          <path d="M 28 78 Q 16 72 12 65 Q 10 58 15 54 Q 20 52 26 56 Q 24 70 28 78 Z" fill="#43A047"/>
+        </svg>
+      </div>
+      <div style="animation: gentleSway 3.5s ease-in-out 0.6s infinite;">
+        <svg viewBox="0 0 120 140" width="100" height="114" xmlns="http://www.w3.org/2000/svg">
+          <path d="M 60 124 Q 58 78 56 38" stroke="#4A7A2A" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+          <path d="M 57 88 Q 38 80 24 78" stroke="#388E3C" stroke-width="2" fill="none"/>
+          <ellipse cx="26" cy="76" rx="9" ry="5" fill="#2E7D32" transform="rotate(-18,26,76)"/>
+          <path d="M 57 72 Q 76 64 90 62" stroke="#2E7D32" stroke-width="2" fill="none"/>
+          <ellipse cx="88" cy="60" rx="9" ry="5" fill="#388E3C" transform="rotate(15,88,60)"/>
+          <ellipse cx="74.0" cy="30.0" rx="3.5" ry="9" fill="#FDD835" transform="rotate(0,74.0,30.0)" opacity="0.85"/>
+          <ellipse cx="71.6" cy="39.0" rx="3.5" ry="9" fill="#FFEB3B" transform="rotate(30,71.6,39.0)" opacity="0.85"/>
+          <ellipse cx="65.0" cy="45.6" rx="3.5" ry="9" fill="#FDD835" transform="rotate(60,65.0,45.6)" opacity="0.85"/>
+          <ellipse cx="56.0" cy="48.0" rx="3.5" ry="9" fill="#FFEB3B" transform="rotate(90,56.0,48.0)" opacity="0.85"/>
+          <ellipse cx="47.0" cy="45.6" rx="3.5" ry="9" fill="#FDD835" transform="rotate(120,47.0,45.6)" opacity="0.85"/>
+          <ellipse cx="40.4" cy="39.0" rx="3.5" ry="9" fill="#FFEB3B" transform="rotate(150,40.4,39.0)" opacity="0.85"/>
+          <ellipse cx="38.0" cy="30.0" rx="3.5" ry="9" fill="#FDD835" transform="rotate(180,38.0,30.0)" opacity="0.85"/>
+          <ellipse cx="40.4" cy="21.0" rx="3.5" ry="9" fill="#FFEB3B" transform="rotate(210,40.4,21.0)" opacity="0.85"/>
+          <ellipse cx="47.0" cy="14.4" rx="3.5" ry="9" fill="#FDD835" transform="rotate(240,47.0,14.4)" opacity="0.85"/>
+          <ellipse cx="56.0" cy="12.0" rx="3.5" ry="9" fill="#FFEB3B" transform="rotate(270,56.0,12.0)" opacity="0.85"/>
+          <ellipse cx="65.0" cy="14.4" rx="3.5" ry="9" fill="#FDD835" transform="rotate(300,65.0,14.4)" opacity="0.85"/>
+          <ellipse cx="71.6" cy="21.0" rx="3.5" ry="9" fill="#FFEB3B" transform="rotate(330,71.6,21.0)" opacity="0.85"/>
+          <circle cx="56" cy="30" r="10" fill="#5D4037"/>
+          <circle cx="56" cy="30" r="7" fill="#795548" opacity="0.5"/>
+        </svg>
+      </div>
+      <div style="animation: gentleSway 2.8s ease-in-out 0.9s infinite;">
+        <svg viewBox="0 0 120 140" width="90" height="103" xmlns="http://www.w3.org/2000/svg">
+          <path d="M 60 116 Q 59 98 58 80" stroke="#4A7A2A" stroke-width="2" fill="none"/>
+          <path d="M 58 98 Q 44 90 34 88" stroke="#2E7D32" stroke-width="1.5" fill="none"/>
+          <ellipse cx="32" cy="86" rx="8" ry="5" fill="#2E7D32" transform="rotate(-15,32,86)"/>
+          <path d="M 58 86 Q 74 78 84 76" stroke="#388E3C" stroke-width="1.5" fill="none"/>
+          <ellipse cx="86" cy="74" rx="8" ry="5" fill="#43A047" transform="rotate(15,86,74)"/>
+          <path d="M 56 56 Q 44 46 34 42 Q 36 50 46 52 Z" fill="#2E7D32"/>
+          <path d="M 60 54 Q 60 42 60 32 Q 64 34 62 46 Z" fill="#4CAF50"/>
+          <path d="M 64 56 Q 76 46 86 42 Q 84 50 74 52 Z" fill="#388E3C"/>
+          <path d="M 58 56 Q 46 60 42 70 Q 42 84 56 90 Q 60 92 64 90 Q 78 84 78 70 Q 74 60 62 56 Z" fill="#E53935"/>
+          <ellipse cx="52" cy="68" rx="1.5" ry="2" fill="#FFF8E1" opacity="0.9" transform="rotate(-10,52,68)"/>
+          <ellipse cx="60" cy="64" rx="1.5" ry="2" fill="#FFF8E1" opacity="0.9"/>
+          <ellipse cx="68" cy="68" rx="1.5" ry="2" fill="#FFF8E1" opacity="0.9" transform="rotate(10,68,68)"/>
+          <ellipse cx="50" cy="76" rx="1.5" ry="2" fill="#FFF8E1" opacity="0.9"/>
+          <ellipse cx="60" cy="74" rx="1.5" ry="2" fill="#FFF8E1" opacity="0.9"/>
+          <ellipse cx="70" cy="76" rx="1.5" ry="2" fill="#FFF8E1" opacity="0.9"/>
+        </svg>
+      </div>
+    </div>
+
+    <div class="final-tagline">
+      BloomDay.<br>
+      <em>The most important feature<br>is everything we left out.</em>
+    </div>
+
+    <div class="final-sub">bloomday.app &middot; free forever</div>
+  </div>
+
+</div>
+</body>
+</html>
