@@ -7,10 +7,6 @@
     font-family:'DM Sans',Arial,Helvetica,sans-serif;
     overflow:hidden;
   }
-  .footer {
-    position:absolute; bottom:40px; left:0; right:0;
-    text-align:center; z-index:100;
-  }
   @keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
   @keyframes fadeInUp {
     from { opacity:0; transform:translateY(60px); }
@@ -72,14 +68,6 @@
     60% { opacity:1; transform:scale(1.3) rotate(5deg); }
     100% { opacity:1; transform:scale(1) rotate(0deg); }
   }
-  @keyframes slideUp {
-    from { opacity:0; transform:translateY(100px); }
-    to { opacity:1; transform:translateY(0); }
-  }
-  @keyframes crossOut {
-    from { text-decoration-color: transparent; }
-    to { text-decoration-color: currentColor; }
-  }
   @keyframes bounceIn {
     0% { opacity:0; transform:scale(0.3); }
     50% { opacity:1; transform:scale(1.1); }
@@ -96,40 +84,35 @@
     75% { transform:rotate(5deg); }
   }
 </style>
-</head><body style="position:relative">
+</head><body>
 <div style="width:100%;height:100%;display:flex;flex-direction:column;
-  align-items:center;justify-content:space-between;padding:100px 60px 120px;
+  align-items:center;justify-content:center;gap:40px;padding:80px 60px;
   text-align:center">
 
-  <!-- Header -->
-  <div style="opacity:0; animation: fadeInDown 0.6s ease-out 0.3s forwards;
-    font-family:Georgia,'Times New Roman',serif;font-size:40px;
-    color:#9a8f84;line-height:1.2">
-    the task:</div>
+  <!-- Tiny task label -->
+  <div style="opacity:0; animation: fadeIn 0.5s ease-out 0.5s forwards;
+    font-size:28px;color:#9a8f84">the task:</div>
 
-  <!-- Tiny task -->
-  <div style="opacity:0; animation: fadeIn 0.6s ease-out 1.2s forwards;
-    background:rgba(255,255,255,0.05);border-radius:16px;padding:20px 40px">
-    <div style="font-size:24px;color:#f5f0e8">"take out the trash"</div>
-  </div>
+  <div style="opacity:0; animation: fadeIn 0.5s ease-out 1.2s forwards;
+    font-size:32px;color:#f5f0e8">"take out the trash"</div>
 
-  <!-- Check it off -->
+  <!-- BIG checkmark -->
   <div style="opacity:0; animation: bounceIn 0.5s ease-out 2.5s forwards;
-    width:60px;height:60px;border-radius:50%;background:#9ab06a;
+    width:80px;height:80px;border-radius:50%;background:#9ab06a;
     display:flex;align-items:center;justify-content:center">
-    <span style="color:#2a2520;font-size:36px;font-weight:700">✓</span>
+    <span style="color:#2a2520;font-size:48px;font-weight:700">✓</span>
   </div>
 
-  <!-- "when the dopamine hits" -->
+  <!-- HUGE dramatic text -->
   <div style="opacity:0; animation: scalePop 0.8s ease-out 3.5s forwards;
-    font-family:Georgia,'Times New Roman',serif;font-size:48px;
-    color:#f5f0e8;line-height:1.1;font-weight:700">
+    font-family:Georgia,'Times New Roman',serif;font-size:72px;
+    color:#f5f0e8;line-height:1.0;font-weight:700">
     when the<br>dopamine hits</div>
 
-  <!-- HUGE sunflower celebration -->
+  <!-- HUGE sunflower -->
   <div style="opacity:0; animation: scalePop 1s ease-out 5.0s forwards;">
     <div style="animation: pulseGrow 1.5s ease-in-out 6.5s infinite;">
-      <svg viewBox="0 0 120 140" width="300" height="338" xmlns="http://www.w3.org/2000/svg">
+      <svg viewBox="0 0 120 140" width="480" height="540" xmlns="http://www.w3.org/2000/svg">
   <path d="M 60 124 Q 58 78 56 38" stroke="#4A7A2A" stroke-width="3.5" fill="none" stroke-linecap="round"/>
   <path d="M 57 88 Q 38 80 24 78" stroke="#388E3C" stroke-width="2" fill="none"/>
   <ellipse cx="26" cy="76" rx="9" ry="5" fill="#2E7D32" transform="rotate(-18,26,76)"/>
@@ -154,10 +137,10 @@
     </div>
   </div>
 
-  <!-- Side plants -->
-  <div style="display:flex;gap:60px;align-items:center;justify-content:center">
+  <!-- Side plants celebration -->
+  <div style="display:flex;gap:40px;align-items:center;justify-content:center">
     <div style="opacity:0; animation: slideInLeft 0.5s ease-out 6.0s forwards;">
-      <div style="animation: wiggle 2s ease-in-out 7s infinite;"><svg viewBox="0 0 120 140" width="140" height="157" xmlns="http://www.w3.org/2000/svg">
+      <div style="animation: wiggle 2s ease-in-out 7s infinite;"><svg viewBox="0 0 120 140" width="200" height="225" xmlns="http://www.w3.org/2000/svg">
   <path d="M 28 124 Q 34 90 44 65 Q 54 45 68 30 Q 78 22 92 18" stroke="#6D4C41" stroke-width="4" fill="none" stroke-linecap="round"/>
   <path d="M 54 50 Q 40 42 28 40" stroke="#6D4C41" stroke-width="2" fill="none" stroke-linecap="round"/>
   <path d="M 68 36 Q 72 50 76 60" stroke="#6D4C41" stroke-width="1.5" fill="none" stroke-linecap="round"/>
@@ -223,11 +206,8 @@
   <circle cx="46" cy="58" r="2" fill="#F48FB1" opacity="0.6"/>
 </svg></div>
     </div>
-    <div style="opacity:0; animation: scalePop 0.6s ease-out 6.5s forwards;
-      font-family:Georgia,'Times New Roman',serif;font-size:60px;color:#9ab06a">
-      !!!</div>
     <div style="opacity:0; animation: slideInRight 0.5s ease-out 6.2s forwards;">
-      <div style="animation: wiggle 2.5s ease-in-out 7.5s infinite;"><svg viewBox="0 0 120 140" width="140" height="157" xmlns="http://www.w3.org/2000/svg">
+      <div style="animation: wiggle 2.5s ease-in-out 7.5s infinite;"><svg viewBox="0 0 120 140" width="200" height="225" xmlns="http://www.w3.org/2000/svg">
   <ellipse cx="60" cy="134" rx="24" ry="3" fill="rgba(0,0,0,0.08)"/>
   <path d="M 38 100 L 42 128 Q 60 132 78 128 L 82 100 Z" fill="#E8DCC8"/>
   <ellipse cx="60" cy="100" rx="23" ry="5" fill="#cabeaa"/>
@@ -245,13 +225,6 @@
     </div>
   </div>
 
-  <!-- Punchline -->
-  <div style="opacity:0; animation: fadeInUp 0.5s ease-out 8.0s forwards;
-    font-size:22px;color:#9a8f84;font-style:italic">
-    (it was literally just the trash)</div>
-</div>
-
-    <div class="footer" style="opacity:0; animation: fadeIn 0.4s ease-out 9.0s forwards;">
-      <div style="font-size:15px;color:#9a8f84;letter-spacing:2px">
-        bloomday.app · free forever</div>
-    </div></body></html>
+  <div style="opacity:0; animation: fadeIn 0.3s ease-out 8.5s forwards;
+    font-size:16px;color:#9a8f84;letter-spacing:2px">bloomday.app</div>
+</div></body></html>

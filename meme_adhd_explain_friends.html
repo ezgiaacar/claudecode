@@ -7,10 +7,6 @@
     font-family:'DM Sans',Arial,Helvetica,sans-serif;
     overflow:hidden;
   }
-  .footer {
-    position:absolute; bottom:40px; left:0; right:0;
-    text-align:center; z-index:100;
-  }
   @keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
   @keyframes fadeInUp {
     from { opacity:0; transform:translateY(60px); }
@@ -72,14 +68,6 @@
     60% { opacity:1; transform:scale(1.3) rotate(5deg); }
     100% { opacity:1; transform:scale(1) rotate(0deg); }
   }
-  @keyframes slideUp {
-    from { opacity:0; transform:translateY(100px); }
-    to { opacity:1; transform:translateY(0); }
-  }
-  @keyframes crossOut {
-    from { text-decoration-color: transparent; }
-    to { text-decoration-color: currentColor; }
-  }
   @keyframes bounceIn {
     0% { opacity:0; transform:scale(0.3); }
     50% { opacity:1; transform:scale(1.1); }
@@ -96,81 +84,37 @@
     75% { transform:rotate(5deg); }
   }
 </style>
-</head><body style="position:relative">
+</head><body>
 <div style="width:100%;height:100%;display:flex;flex-direction:column;
-  align-items:center;justify-content:space-between;padding:100px 40px 120px;
+  align-items:center;justify-content:center;gap:36px;padding:80px 60px;
   text-align:center">
 
-  <!-- Title -->
+  <!-- Title - BIG -->
   <div style="opacity:0; animation: fadeInDown 0.6s ease-out 0.3s forwards;
-    font-family:Georgia,'Times New Roman',serif;font-size:38px;
-    color:#f5f0e8;line-height:1.15">
-    how I explain bloomday<br>to neurotypical friends</div>
+    font-family:Georgia,'Times New Roman',serif;font-size:50px;
+    color:#f5f0e8;line-height:1.1">
+    explaining bloomday<br>to neurotypicals</div>
 
-  <!-- Chat bubbles -->
-  <div style="display:flex;flex-direction:column;gap:14px;width:100%">
-    
-            <div style="opacity:0; animation: slideInLeft 0.4s ease-out 1.5s forwards;
-              display:flex;gap:12px;width:100%;text-align:left;padding:0 40px">
-              <div style="font-size:20px;color:#8da880;font-weight:600;min-width:70px;
-                text-align:right">me:</div>
-              <div style="font-size:24px;color:#f5f0e8;line-height:1.5">it's a productivity app</div>
-            </div>
-            <div style="opacity:0; animation: slideInLeft 0.4s ease-out 2.5s forwards;
-              display:flex;gap:12px;width:100%;text-align:left;padding:0 40px">
-              <div style="font-size:20px;color:#8da880;font-weight:600;min-width:70px;
-                text-align:right">them:</div>
-              <div style="font-size:24px;color:#8da880;line-height:1.5">oh like todoist?</div>
-            </div>
-            <div style="opacity:0; animation: slideInLeft 0.4s ease-out 3.8s forwards;
-              display:flex;gap:12px;width:100%;text-align:left;padding:0 40px">
-              <div style="font-size:20px;color:#8da880;font-weight:600;min-width:70px;
-                text-align:right">me:</div>
-              <div style="font-size:24px;color:#f5f0e8;line-height:1.5">no, you grow plants</div>
-            </div>
-            <div style="opacity:0; animation: slideInLeft 0.4s ease-out 4.8s forwards;
-              display:flex;gap:12px;width:100%;text-align:left;padding:0 40px">
-              <div style="font-size:20px;color:#8da880;font-weight:600;min-width:70px;
-                text-align:right">them:</div>
-              <div style="font-size:24px;color:#8da880;line-height:1.5">...farmville?</div>
-            </div>
-            <div style="opacity:0; animation: slideInLeft 0.4s ease-out 6.0s forwards;
-              display:flex;gap:12px;width:100%;text-align:left;padding:0 40px">
-              <div style="font-size:20px;color:#8da880;font-weight:600;min-width:70px;
-                text-align:right">me:</div>
-              <div style="font-size:24px;color:#f5f0e8;line-height:1.5">NO, you complete tasks and—</div>
-            </div>
-            <div style="opacity:0; animation: slideInLeft 0.4s ease-out 7.0s forwards;
-              display:flex;gap:12px;width:100%;text-align:left;padding:0 40px">
-              <div style="font-size:20px;color:#8da880;font-weight:600;min-width:70px;
-                text-align:right">them:</div>
-              <div style="font-size:24px;color:#8da880;line-height:1.5">sounds like a game</div>
-            </div>
-            <div style="opacity:0; animation: slideInLeft 0.4s ease-out 8.5s forwards;
-              display:flex;gap:12px;width:100%;text-align:left;padding:0 40px">
-              <div style="font-size:20px;color:#8da880;font-weight:600;min-width:70px;
-                text-align:right">me:</div>
-              <div style="font-size:24px;color:#d4e8a8;line-height:1.5">
-                ok so imagine you have ADHD and<br>
-                everything feels impossible but then<br>
-                you check off "drink water" and a<br>
-                cherry blossom grows and suddenly<br>
-                you feel like you can do anything</div>
-            </div>
+  <!-- Chat - bigger, simpler -->
+  <div style="display:flex;flex-direction:column;gap:16px;width:100%;text-align:left;padding:0 50px">
+    <div style="opacity:0; animation: slideInLeft 0.4s ease-out 1.5s forwards;
+      font-size:30px;color:#f5f0e8">"it's a productivity app"</div>
+    <div style="opacity:0; animation: slideInRight 0.4s ease-out 2.5s forwards;
+      font-size:30px;color:#8da880;text-align:right">"oh like todoist?"</div>
+    <div style="opacity:0; animation: slideInLeft 0.4s ease-out 3.5s forwards;
+      font-size:30px;color:#f5f0e8">"no you grow plants"</div>
+    <div style="opacity:0; animation: slideInRight 0.4s ease-out 4.5s forwards;
+      font-size:30px;color:#8da880;text-align:right">"...farmville?"</div>
+    <div style="opacity:0; animation: slideInLeft 0.4s ease-out 5.5s forwards;
+      font-size:30px;color:#d4e8a8;font-weight:600">"NO ok so imagine<br>you have ADHD and—"</div>
+    <div style="opacity:0; animation: slideInRight 0.4s ease-out 7.0s forwards;
+      font-size:30px;color:#8da880;text-align:right">"are you okay?"</div>
   </div>
 
-  <!-- Their response -->
-  <div style="opacity:0; animation: fadeIn 0.6s ease-out 11.0s forwards;
-    display:flex;gap:12px;width:100%;text-align:left;padding:0 40px">
-    <div style="font-size:20px;color:#8da880;font-weight:600;min-width:70px;
-      text-align:right">them:</div>
-    <div style="font-size:24px;color:#8da880;line-height:1.5">...are you okay?</div>
-  </div>
-
-  <!-- Plant + final -->
-  <div style="opacity:0; animation: scalePop 0.8s ease-out 12.0s forwards;">
-    <div style="animation: gentleSway 3s ease-in-out 13s infinite;">
-      <svg viewBox="0 0 120 140" width="220" height="248" xmlns="http://www.w3.org/2000/svg">
+  <!-- BIG plant -->
+  <div style="opacity:0; animation: scalePop 0.8s ease-out 8.5s forwards;">
+    <div style="animation: gentleSway 3s ease-in-out 9.5s infinite;">
+      <svg viewBox="0 0 120 140" width="360" height="405" xmlns="http://www.w3.org/2000/svg">
   <path d="M 28 124 Q 34 90 44 65 Q 54 45 68 30 Q 78 22 92 18" stroke="#6D4C41" stroke-width="4" fill="none" stroke-linecap="round"/>
   <path d="M 54 50 Q 40 42 28 40" stroke="#6D4C41" stroke-width="2" fill="none" stroke-linecap="round"/>
   <path d="M 68 36 Q 72 50 76 60" stroke="#6D4C41" stroke-width="1.5" fill="none" stroke-linecap="round"/>
@@ -238,12 +182,12 @@
     </div>
   </div>
 
-  <div style="opacity:0; animation: fadeIn 0.5s ease-out 13.5s forwards;
-    font-size:24px;color:#d4e8a8;font-style:italic">
-    I've never been better.</div>
-</div>
+  <!-- Punchline -->
+  <div style="opacity:0; animation: fadeInUp 0.5s ease-out 10.0s forwards;
+    font-family:Georgia,'Times New Roman',serif;font-size:52px;
+    color:#d4e8a8;font-style:italic">
+    never been better.</div>
 
-    <div class="footer" style="opacity:0; animation: fadeIn 0.4s ease-out 14.5s forwards;">
-      <div style="font-size:15px;color:#8da880;letter-spacing:2px">
-        bloomday.app · free forever</div>
-    </div></body></html>
+  <div style="opacity:0; animation: fadeIn 0.3s ease-out 11.5s forwards;
+    font-size:16px;color:#8da880;letter-spacing:2px">bloomday.app</div>
+</div></body></html>

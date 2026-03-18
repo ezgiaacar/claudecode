@@ -7,10 +7,6 @@
     font-family:'DM Sans',Arial,Helvetica,sans-serif;
     overflow:hidden;
   }
-  .footer {
-    position:absolute; bottom:40px; left:0; right:0;
-    text-align:center; z-index:100;
-  }
   @keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
   @keyframes fadeInUp {
     from { opacity:0; transform:translateY(60px); }
@@ -72,14 +68,6 @@
     60% { opacity:1; transform:scale(1.3) rotate(5deg); }
     100% { opacity:1; transform:scale(1) rotate(0deg); }
   }
-  @keyframes slideUp {
-    from { opacity:0; transform:translateY(100px); }
-    to { opacity:1; transform:translateY(0); }
-  }
-  @keyframes crossOut {
-    from { text-decoration-color: transparent; }
-    to { text-decoration-color: currentColor; }
-  }
   @keyframes bounceIn {
     0% { opacity:0; transform:scale(0.3); }
     50% { opacity:1; transform:scale(1.1); }
@@ -96,85 +84,46 @@
     75% { transform:rotate(5deg); }
   }
 </style>
-</head><body style="position:relative">
+</head><body>
 <div style="width:100%;height:100%;display:flex;flex-direction:column;
-  align-items:center;justify-content:space-between;padding:80px 40px 120px;
+  align-items:center;justify-content:center;gap:44px;padding:80px 60px;
   text-align:center">
 
-  <!-- Title -->
-  <div style="opacity:0; animation: fadeInDown 0.6s ease-out 0.3s forwards;">
-    <div style="font-family:Georgia,'Times New Roman',serif;font-size:44px;
-      color:#2a2520;line-height:1.1">executive dysfunction<br>starter pack</div>
-  </div>
+  <!-- Title - BIG -->
+  <div style="opacity:0; animation: fadeInDown 0.6s ease-out 0.3s forwards;
+    font-family:Georgia,'Times New Roman',serif;font-size:56px;
+    color:#2a2520;line-height:1.05;font-weight:700">
+    executive<br>dysfunction<br>starter pack</div>
 
-  <!-- Grid of items -->
-  <div style="position:relative;width:100%;height:540px">
+  <!-- Items - clean list -->
+  <div style="display:flex;flex-direction:column;gap:0;text-align:center">
     
         <div style="opacity:0; animation: fadeInUp 0.4s ease-out 1.0s forwards;
-          background:rgba(94,112,84,0.08);border-radius:20px;padding:24px 28px;
-          width:460px;position:absolute;left:40px;
-          top:60px">
-          <div style="font-size:22px;color:#2a2520;line-height:1.4;white-space:pre-line">13 unread texts</div>
-        </div>
-        <div style="opacity:0; animation: fadeInUp 0.4s ease-out 1.6s forwards;
-          background:rgba(94,112,84,0.08);border-radius:20px;padding:24px 28px;
-          width:460px;position:absolute;left:530px;
-          top:60px">
-          <div style="font-size:22px;color:#2a2520;line-height:1.4;white-space:pre-line">inbox: 4,382</div>
-        </div>
-        <div style="opacity:0; animation: fadeInUp 0.4s ease-out 2.2s forwards;
-          background:rgba(94,112,84,0.08);border-radius:20px;padding:24px 28px;
-          width:460px;position:absolute;left:40px;
-          top:220px">
-          <div style="font-size:22px;color:#2a2520;line-height:1.4;white-space:pre-line">3 half-eaten meals</div>
-        </div>
-        <div style="opacity:0; animation: fadeInUp 0.4s ease-out 2.8s forwards;
-          background:rgba(94,112,84,0.08);border-radius:20px;padding:24px 28px;
-          width:460px;position:absolute;left:530px;
-          top:220px">
-          <div style="font-size:22px;color:#2a2520;line-height:1.4;white-space:pre-line">clean laundry still in dryer</div>
-        </div>
+          font-size:34px;color:#2a2520;line-height:1.7">13 unread texts</div>
+        <div style="opacity:0; animation: fadeInUp 0.4s ease-out 1.8s forwards;
+          font-size:34px;color:#2a2520;line-height:1.7">inbox: 4,382</div>
+        <div style="opacity:0; animation: fadeInUp 0.4s ease-out 2.6s forwards;
+          font-size:34px;color:#2a2520;line-height:1.7">started 7 projects</div>
         <div style="opacity:0; animation: fadeInUp 0.4s ease-out 3.4s forwards;
-          background:rgba(94,112,84,0.08);border-radius:20px;padding:24px 28px;
-          width:460px;position:absolute;left:40px;
-          top:380px">
-          <div style="font-size:22px;color:#2a2520;line-height:1.4;white-space:pre-line">started 7 projects
-finished 0</div>
-        </div>
-        <div style="opacity:0; animation: fadeInUp 0.4s ease-out 4.0s forwards;
-          background:rgba(94,112,84,0.08);border-radius:20px;padding:24px 28px;
-          width:460px;position:absolute;left:530px;
-          top:380px">
-          <div style="font-size:22px;color:#2a2520;line-height:1.4;white-space:pre-line">"I'll do it tomorrow"
-— me, 3 weeks ago</div>
-        </div>
+          font-size:34px;color:#2a2520;line-height:1.7">finished 0</div>
   </div>
 
-  <!-- Divider -->
-  <div style="opacity:0; animation: fadeIn 0.3s ease-out 5.5s forwards;
-    width:60px;height:3px;background:#5e7054"></div>
-
-  <!-- The antidote -->
-  <div style="opacity:0; animation: fadeInUp 0.8s ease-out 6.5s forwards;
-    font-family:Georgia,'Times New Roman',serif;font-size:32px;
-    color:#2a2520;line-height:1.3">
-    but then you open bloomday<br>and check off ONE thing</div>
-
-  <div style="opacity:0; animation: bounceIn 0.6s ease-out 8.0s forwards;
-    background:rgba(94,112,84,0.1);border:2px solid #5e7054;border-radius:20px;
-    padding:16px 36px;display:inline-flex;align-items:center;gap:12px">
-    <div style="width:28px;height:28px;border-radius:50%;background:#5e7054;
+  <!-- Task chip -->
+  <div style="opacity:0; animation: bounceIn 0.6s ease-out 5.0s forwards;
+    background:rgba(94,112,84,0.1);border:2px solid #5e7054;border-radius:24px;
+    padding:20px 44px;display:inline-flex;align-items:center;gap:16px">
+    <div style="width:36px;height:36px;border-radius:50%;background:#5e7054;
       display:flex;align-items:center;justify-content:center;
-      opacity:0;animation:checkmark 0.5s ease-out 9.0s forwards">
-      <span style="color:#f5f0e8;font-size:18px;font-weight:700">✓</span>
+      opacity:0;animation:checkmark 0.5s ease-out 6.0s forwards">
+      <span style="color:#f5f0e8;font-size:22px;font-weight:700">✓</span>
     </div>
-    <div style="font-size:22px;color:#2a2520">"brush teeth"</div>
+    <div style="font-size:28px;color:#2a2520">"brush teeth"</div>
   </div>
 
-  <!-- Plant -->
-  <div style="opacity:0; animation: scaleIn 0.8s ease-out 9.5s forwards;">
-    <div style="animation: gentleSway 3s ease-in-out 10.5s infinite;">
-      <svg viewBox="0 0 120 140" width="180" height="202" xmlns="http://www.w3.org/2000/svg">
+  <!-- BIG plant -->
+  <div style="opacity:0; animation: scaleIn 1s ease-out 7.0s forwards;">
+    <div style="animation: gentleSway 3s ease-in-out 8s infinite;">
+      <svg viewBox="0 0 120 140" width="360" height="405" xmlns="http://www.w3.org/2000/svg">
   <path d="M 58 118 Q 46 114 36 110" stroke="#4A7A2A" stroke-width="1.2" fill="none"/>
   <path d="M 62 118 Q 74 114 84 110" stroke="#4A7A2A" stroke-width="1.2" fill="none"/>
   <path d="M 60 116 Q 59 98 58 80" stroke="#4A7A2A" stroke-width="2" fill="none"/>
@@ -202,12 +151,12 @@ finished 0</div>
     </div>
   </div>
 
-  <div style="opacity:0; animation: fadeIn 0.5s ease-out 11.0s forwards;
-    font-size:24px;color:#5e7054;font-style:italic">
-    and a strawberry grew.</div>
-</div>
+  <!-- Punchline - BIG -->
+  <div style="opacity:0; animation: fadeInUp 0.5s ease-out 8.5s forwards;
+    font-family:Georgia,'Times New Roman',serif;font-size:48px;
+    color:#5e7054;font-style:italic">
+    a strawberry grew.</div>
 
-    <div class="footer" style="opacity:0; animation: fadeIn 0.4s ease-out 12.0s forwards;">
-      <div style="font-size:15px;color:#9a9088;letter-spacing:2px">
-        bloomday.app · free forever</div>
-    </div></body></html>
+  <div style="opacity:0; animation: fadeIn 0.3s ease-out 10.0s forwards;
+    font-size:16px;color:#9a9088;letter-spacing:2px">bloomday.app</div>
+</div></body></html>
