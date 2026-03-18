@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1080" viewBox="0 0 1080 1080">
+  <rect width="1080" height="1080" fill="#FAFAF7"/>
+
+  <!-- Top text -->
+  <text x="540" y="120" text-anchor="middle" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="48" font-weight="700" fill="#2A2A2A" letter-spacing="-0.5">So I built one</text>
+  <text x="540" y="180" text-anchor="middle" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="48" font-weight="700" fill="#3D6B4F" letter-spacing="-0.5">that does less.</text>
+
+  <!-- Minimal app mockup -->
+  <g transform="translate(215, 240)">
+    <!-- Phone frame -->
+    <rect x="0" y="0" width="650" height="620" rx="32" fill="white" stroke="#E8E8E4" stroke-width="2"/>
+
+    <!-- Status bar area -->
+    <text x="325" y="42" text-anchor="middle" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="16" fill="#AAA">Tuesday, March 18</text>
+
+    <!-- Greeting -->
+    <text x="50" y="90" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="28" font-weight="600" fill="#2A2A2A">Today</text>
+
+    <!-- Just 3 simple tasks with generous spacing -->
+    <g transform="translate(50, 120)">
+      <!-- Task 1 - done -->
+      <g transform="translate(0, 0)">
+        <circle cx="16" cy="18" r="12" fill="#3D6B4F" opacity="0.15"/>
+        <path d="M10 18 L14 22 L22 14" stroke="#3D6B4F" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        <text x="42" y="23" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="22" fill="#AAA" text-decoration="line-through">Morning walk</text>
+      </g>
+      <!-- Task 2 - done -->
+      <g transform="translate(0, 65)">
+        <circle cx="16" cy="18" r="12" fill="#3D6B4F" opacity="0.15"/>
+        <path d="M10 18 L14 22 L22 14" stroke="#3D6B4F" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        <text x="42" y="23" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="22" fill="#AAA" text-decoration="line-through">Call the dentist</text>
+      </g>
+      <!-- Task 3 - not done -->
+      <g transform="translate(0, 130)">
+        <circle cx="16" cy="18" r="12" fill="none" stroke="#DDD" stroke-width="2"/>
+        <text x="42" y="23" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="22" fill="#2A2A2A">Read for 15 minutes</text>
+      </g>
+    </g>
+
+    <!-- Small garden at bottom -->
+    <g transform="translate(0, 380)">
+      <!-- Soil line -->
+      <rect x="40" y="120" width="570" height="70" rx="20" fill="#E8DFD0" opacity="0.5"/>
+
+      <!-- Tiny plants growing -->
+      <g transform="translate(80, 90)">
+        <line x1="0" y1="30" x2="0" y2="5" stroke="#3D6B4F" stroke-width="2" stroke-linecap="round"/>
+        <ellipse cx="-6" cy="8" rx="5" ry="3" fill="#6B8F71" transform="rotate(-20,-6,8)"/>
+        <ellipse cx="6" cy="4" rx="5" ry="3" fill="#8FB996" transform="rotate(20,6,4)"/>
+      </g>
+      <g transform="translate(140, 80)">
+        <line x1="0" y1="40" x2="0" y2="8" stroke="#3D6B4F" stroke-width="2" stroke-linecap="round"/>
+        <circle cx="0" cy="5" r="6" fill="#D4907F" opacity="0.7"/>
+        <circle cx="0" cy="5" r="3" fill="#E8C4B8" opacity="0.5"/>
+        <ellipse cx="-5" cy="25" rx="4" ry="2.5" fill="#6B8F71" transform="rotate(-15,-5,25)"/>
+      </g>
+      <g transform="translate(200, 85)">
+        <line x1="0" y1="35" x2="0" y2="10" stroke="#6B8F71" stroke-width="2" stroke-linecap="round"/>
+        <ellipse cx="-5" cy="14" rx="5" ry="3" fill="#8FB996" transform="rotate(-25,-5,14)"/>
+        <ellipse cx="5" cy="10" rx="4" ry="2.5" fill="#6B8F71" transform="rotate(18,5,10)"/>
+      </g>
+      <g transform="translate(260, 95)">
+        <rect x="-2" y="10" width="4" height="15" rx="2" fill="#C4A882"/>
+        <ellipse cx="0" cy="10" rx="7" ry="5" fill="#D4C4B0"/>
+      </g>
+      <g transform="translate(310, 82)">
+        <line x1="0" y1="38" x2="0" y2="6" stroke="#3D6B4F" stroke-width="2" stroke-linecap="round"/>
+        <ellipse cx="0" cy="5" rx="3" ry="7" fill="white" opacity="0.7"/>
+        <ellipse cx="0" cy="5" rx="3" ry="7" fill="white" opacity="0.7" transform="rotate(72,0,5)"/>
+        <ellipse cx="0" cy="5" rx="3" ry="7" fill="white" opacity="0.7" transform="rotate(144,0,5)"/>
+        <circle cx="0" cy="5" r="3" fill="#E8D5A3"/>
+      </g>
+      <g transform="translate(370, 90)">
+        <line x1="0" y1="30" x2="0" y2="5" stroke="#3D6B4F" stroke-width="2" stroke-linecap="round"/>
+        <circle cx="0" cy="4" r="5" fill="#B8A9C9" opacity="0.8"/>
+        <circle cx="0" cy="2" r="3" fill="#D4C4E0" opacity="0.6"/>
+      </g>
+      <g transform="translate(430, 88)">
+        <ellipse cx="-4" cy="18" rx="4" ry="8" fill="#8FB996" transform="rotate(-15,-4,18)"/>
+        <ellipse cx="4" cy="18" rx="4" ry="8" fill="#6B8F71" transform="rotate(15,4,18)"/>
+        <ellipse cx="0" cy="15" rx="3.5" ry="7" fill="#8FB996"/>
+      </g>
+      <g transform="translate(490, 85)">
+        <line x1="0" y1="35" x2="0" y2="6" stroke="#3D6B4F" stroke-width="1.8" stroke-linecap="round"/>
+        <circle cx="0" cy="4" r="5" fill="#E8D5A3" opacity="0.8"/>
+        <circle cx="0" cy="4" r="2.5" fill="#D4907F" opacity="0.5"/>
+      </g>
+
+      <!-- Remaining empty soil dots -->
+      <circle cx="530" cy="130" r="3" fill="#C4A882" opacity="0.3"/>
+      <circle cx="555" cy="128" r="3" fill="#C4A882" opacity="0.3"/>
+      <circle cx="580" cy="132" r="3" fill="#C4A882" opacity="0.3"/>
+    </g>
+  </g>
+
+  <!-- Label -->
+  <text x="540" y="930" text-anchor="middle" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="24" fill="#888" font-style="italic">This is the entire app.</text>
+</svg>

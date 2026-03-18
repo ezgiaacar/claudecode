@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1080" viewBox="0 0 1080 1080">
+  <rect width="1080" height="1080" fill="#FAFAF7"/>
+
+  <!-- Main text -->
+  <text x="540" y="340" text-anchor="middle" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="56" font-weight="700" fill="#2A2A2A" letter-spacing="-1">For my brain,</text>
+  <text x="540" y="410" text-anchor="middle" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="56" font-weight="700" fill="#2A2A2A" letter-spacing="-1">that's not a tool.</text>
+
+  <!-- Accent line -->
+  <line x1="460" y1="460" x2="620" y2="460" stroke="#D4907F" stroke-width="3" stroke-linecap="round"/>
+
+  <!-- Second statement -->
+  <text x="540" y="530" text-anchor="middle" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="56" font-weight="700" fill="#D4907F" letter-spacing="-1">It's a trap.</text>
+
+  <!-- Explanation -->
+  <text x="540" y="700" text-anchor="middle" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="26" font-weight="400" fill="#999" letter-spacing="0.3">
+    <tspan x="540" dy="0">I'd open the app to add a task.</tspan>
+    <tspan x="540" dy="42">20 minutes later, I'd be</tspan>
+    <tspan x="540" dy="42">in the settings menu.</tspan>
+  </text>
+</svg>

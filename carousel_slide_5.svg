@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1080" viewBox="0 0 1080 1080">
+  <rect width="1080" height="1080" fill="#FAFAF7"/>
+
+  <!-- Top text -->
+  <text x="540" y="300" text-anchor="middle" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="48" font-weight="600" fill="#2A2A2A" letter-spacing="-0.5">Then I'd miss a day.</text>
+
+  <!-- Big red streak lost badge -->
+  <g transform="translate(540, 530)">
+    <rect x="-180" y="-55" width="360" height="110" rx="16" fill="#E8E8E8" stroke="#D0D0D0" stroke-width="2"/>
+    <!-- Red badge overlay -->
+    <rect x="-170" y="-45" width="340" height="90" rx="12" fill="#CC2222" opacity="0.12"/>
+    <!-- Broken flame icon -->
+    <g transform="translate(-100, -20)">
+      <path d="M0 25 Q5 10 2 0 Q10 8 12 -5 Q15 5 18 0 Q15 10 20 25 Q10 20 10 15 Q8 20 0 25Z" fill="#CC2222" opacity="0.7"/>
+      <!-- crack line through flame -->
+      <line x1="3" y1="28" x2="17" y2="-2" stroke="#FAFAF7" stroke-width="3" stroke-linecap="round"/>
+    </g>
+    <!-- Text -->
+    <text x="10" y="-8" text-anchor="middle" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="40" font-weight="800" fill="#CC2222" letter-spacing="3">STREAK LOST</text>
+    <text x="10" y="30" text-anchor="middle" font-family="Arial" font-size="18" fill="#CC2222" opacity="0.6">7 day streak broken</text>
+  </g>
+
+  <!-- Bottom text -->
+  <text x="540" y="740" text-anchor="middle" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="26" font-weight="400" fill="#999" letter-spacing="0.3">
+    <tspan x="540" dy="0">And the app would make sure</tspan>
+    <tspan x="540" dy="42">I felt terrible about it.</tspan>
+  </text>
+</svg>

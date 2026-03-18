@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1080" viewBox="0 0 1080 1080">
+  <rect width="1080" height="1080" fill="#FAFAF7"/>
+
+  <!-- Corner plants — top left -->
+  <g transform="translate(60, 60)">
+    <line x1="0" y1="50" x2="0" y2="10" stroke="#3D6B4F" stroke-width="2" stroke-linecap="round" opacity="0.3"/>
+    <ellipse cx="-7" cy="16" rx="6" ry="3.5" fill="#6B8F71" transform="rotate(-25,-7,16)" opacity="0.3"/>
+    <ellipse cx="7" cy="10" rx="6" ry="3.5" fill="#8FB996" transform="rotate(20,7,10)" opacity="0.3"/>
+  </g>
+  <!-- Top right -->
+  <g transform="translate(1020, 50)">
+    <line x1="0" y1="45" x2="0" y2="8" stroke="#3D6B4F" stroke-width="2" stroke-linecap="round" opacity="0.3"/>
+    <circle cx="0" cy="5" r="6" fill="#D4907F" opacity="0.2"/>
+    <ellipse cx="-5" cy="28" rx="5" ry="3" fill="#6B8F71" transform="rotate(-15,-5,28)" opacity="0.3"/>
+  </g>
+  <!-- Bottom left -->
+  <g transform="translate(70, 980)">
+    <ellipse cx="-5" cy="10" rx="5" ry="9" fill="#8FB996" transform="rotate(-15,-5,10)" opacity="0.3"/>
+    <ellipse cx="5" cy="10" rx="5" ry="9" fill="#6B8F71" transform="rotate(15,5,10)" opacity="0.3"/>
+    <ellipse cx="0" cy="6" rx="4" ry="8" fill="#8FB996" opacity="0.25"/>
+  </g>
+  <!-- Bottom right -->
+  <g transform="translate(1010, 990)">
+    <line x1="0" y1="40" x2="0" y2="8" stroke="#3D6B4F" stroke-width="2" stroke-linecap="round" opacity="0.3"/>
+    <circle cx="0" cy="20" r="3" fill="#B8A9C9" opacity="0.25"/>
+    <circle cx="0" cy="12" r="3.5" fill="#B8A9C9" opacity="0.3"/>
+    <circle cx="0" cy="5" r="3" fill="#D4C4E0" opacity="0.25"/>
+  </g>
+
+  <!-- Small leaf accent top center -->
+  <g transform="translate(540, 140)" opacity="0.2">
+    <ellipse cx="-12" cy="0" rx="10" ry="5" fill="#3D6B4F" transform="rotate(-20,-12,0)"/>
+    <ellipse cx="12" cy="0" rx="10" ry="5" fill="#3D6B4F" transform="rotate(20,12,0)"/>
+  </g>
+
+  <!-- Brand name -->
+  <text x="540" y="380" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="96" font-weight="700" fill="#3D6B4F" letter-spacing="-2">BloomDay</text>
+
+  <!-- Tagline -->
+  <text x="540" y="470" text-anchor="middle" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="32" font-weight="400" fill="#2A2A2A" letter-spacing="0.5">The calm task app</text>
+  <text x="540" y="515" text-anchor="middle" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="32" font-weight="400" fill="#2A2A2A" letter-spacing="0.5">for ADHD brains.</text>
+
+  <!-- Accent line -->
+  <line x1="470" y1="560" x2="610" y2="560" stroke="#D4907F" stroke-width="2" stroke-linecap="round" opacity="0.5"/>
+
+  <!-- Free text -->
+  <text x="540" y="620" text-anchor="middle" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="26" font-weight="500" fill="#888" letter-spacing="2">FREE ON THE APP STORE</text>
+
+  <!-- App Store badge -->
+  <g transform="translate(540, 720)">
+    <rect x="-130" y="-30" width="260" height="60" rx="12" fill="#2A2A2A"/>
+    <!-- Apple icon simplified -->
+    <g transform="translate(-95, -12)">
+      <path d="M12 0 Q14 -6 10 -8 Q14 -10 16 -6 Q18 -10 22 -8 Q18 -6 20 0 Q22 6 20 12 Q18 16 16 20 Q14 18 12 20 Q10 16 8 12 Q6 6 8 2 Z" fill="white" transform="scale(0.9)"/>
+    </g>
+    <text x="-52" y="-10" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="11" fill="white" letter-spacing="0.3">Download on the</text>
+    <text x="-52" y="12" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="22" font-weight="600" fill="white" letter-spacing="0.5">App Store</text>
+  </g>
+
+  <!-- Website -->
+  <text x="540" y="830" text-anchor="middle" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="20" fill="#BBB" letter-spacing="3">bloomday.app</text>
+</svg>
