@@ -2,17 +2,11 @@
   <rect width="1080" height="1080" fill="#FAFAF7"/>
 
   <!-- Main text -->
-  <text x="540" y="380" text-anchor="middle" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="62" font-weight="700" fill="#2A2A2A" letter-spacing="-1">
-    <tspan x="540" dy="0">I designed my app</tspan>
-    <tspan x="540" dy="80">to be </tspan>
-  </text>
-  <text x="540" y="460" text-anchor="middle" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="62" font-weight="700" fill="#2A2A2A" letter-spacing="-1">
-    <tspan font-style="italic" fill="#D4907F">boring</tspan>
-    <tspan> on purpose.</tspan>
-  </text>
+  <text x="540" y="380" text-anchor="middle" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="62" font-weight="700" fill="#2A2A2A" letter-spacing="-1">I designed my app</text>
+  <text x="540" y="460" text-anchor="middle" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="62" font-weight="700" fill="#2A2A2A" letter-spacing="-1">to be <tspan font-style="italic" fill="#D4907F">boring</tspan> on purpose.</text>
 
   <!-- Subtitle -->
-  <text x="540" y="540" text-anchor="middle" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="30" font-weight="400" fill="#888" letter-spacing="3">Here's why.</text>
+  <text x="540" y="560" text-anchor="middle" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="30" font-weight="400" fill="#888" letter-spacing="3">Here's why.</text>
 
   <!-- Tiny plant icon -->
   <g transform="translate(540, 880)">
