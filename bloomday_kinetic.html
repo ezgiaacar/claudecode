@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+
+  body {
+    width:1080px; height:1920px;
+    font-family:'DM Sans',system-ui,-apple-system,'Segoe UI',Arial,sans-serif;
+    overflow:hidden;
+    display:flex; align-items:center; justify-content:center;
+  }
+
+  /* ── Background color phases ── */
+  /* Phase 1 (0–7s): warm beige */
+  /* Phase 2 (7–16s): darken gradually */
+  /* Phase 3 (16–20s): dark pause */
+  /* Phase 4 (20–27s): sage green */
+  /* Final (27–32s): sage green */
+  body {
+    animation: bgShift 32s ease-in-out forwards;
+  }
+  @keyframes bgShift {
+    0%    { background:#F5F2ED; }
+    22%   { background:#F5F2ED; }  /* 7s — end of phase 1 */
+    35%   { background:#D6CFC5; }  /* 11s — mid spiral */
+    47%   { background:#8A8278; }  /* 15s — deep spiral */
+    53%   { background:#6B645C; }  /* 17s — darkest */
+    62%   { background:#8A917E; }  /* 20s — transition */
+    69%   { background:#EDF5E8; }  /* 22s — sage green */
+    100%  { background:#EDF5E8; }
+  }
+
+  .stage {
+    width:100%; height:100%;
+    display:flex; align-items:center; justify-content:center;
+    position:relative;
+  }
+
+  /* ── Line styles ── */
+  .line {
+    position:absolute;
+    left:0; right:0;
+    text-align:center;
+    padding:0 80px;
+    opacity:0;
+    /* Each line fades in, holds, then fades to ghost */
+  }
+
+  /* Phase 1: regular weight, dark text */
+  .p1 {
+    font-size:48px; font-weight:400; color:#2A2A2A;
+    line-height:1.3;
+  }
+  /* Phase 2: gets bolder, shifts lighter for contrast on dark bg */
+  .p2 {
+    font-size:52px; font-weight:500; color:#2A2A2A;
+    line-height:1.25;
+  }
+  .p2-bold {
+    font-size:56px; font-weight:700; color:#2A2A2A;
+    line-height:1.2;
+  }
+  .p2-peak {
+    font-size:58px; font-weight:700; color:#F5F2ED;
+    line-height:1.2;
+  }
+  .p2-late {
+    font-size:52px; font-weight:600; color:#F5F2ED;
+    line-height:1.25;
+  }
+  /* Phase 3: lighter, more breath */
+  .p3 {
+    font-size:52px; font-weight:400; color:#F5F2ED;
+    line-height:1.3;
+    font-style:italic;
+  }
+  .p3-bridge {
+    font-size:44px; font-weight:300; color:#E8E4DF;
+    line-height:1.4;
+  }
+  /* Phase 4: calm, sage tones */
+  .p4 {
+    font-size:52px; font-weight:400; color:#2A2A2A;
+    line-height:1.3;
+  }
+  .p4-key {
+    font-size:60px; font-weight:600; color:#3D6B4F;
+    line-height:1.2;
+  }
+  .p4-quiet {
+    font-size:48px; font-weight:300; color:#5A7A5A;
+    line-height:1.3;
+    font-style:italic;
+  }
+  /* Final frame */
+  .final-brand {
+    font-family:Georgia,'Times New Roman',serif;
+    font-size:80px; font-weight:700; color:#3D6B4F;
+    line-height:1.1;
+  }
+  .final-sub {
+    font-size:36px; font-weight:300; color:#5A7A5A;
+    line-height:1.35;
+  }
+
+  /* ── Animation keyframes ── */
+  /* Standard line: fade in, hold, fade to ghost, then invisible */
+  @keyframes lineShow {
+    0%   { opacity:0; transform:translateY(14px); }
+    12%  { opacity:1; transform:translateY(0); }
+    70%  { opacity:1; transform:translateY(0); }
+    90%  { opacity:0.15; transform:translateY(-6px); }
+    100% { opacity:0; transform:translateY(-10px); }
+  }
+  /* Faster version for spiral */
+  @keyframes lineShowFast {
+    0%   { opacity:0; transform:translateY(12px); }
+    15%  { opacity:1; transform:translateY(0); }
+    65%  { opacity:1; transform:translateY(0); }
+    88%  { opacity:0.12; transform:translateY(-6px); }
+    100% { opacity:0; transform:translateY(-8px); }
+  }
+  /* Slower version for resolution */
+  @keyframes lineShowSlow {
+    0%   { opacity:0; transform:translateY(16px); }
+    10%  { opacity:1; transform:translateY(0); }
+    75%  { opacity:1; transform:translateY(0); }
+    92%  { opacity:0.12; transform:translateY(-4px); }
+    100% { opacity:0; transform:translateY(-8px); }
+  }
+  /* Hold — stays visible */
+  @keyframes lineHold {
+    0%   { opacity:0; transform:translateY(14px); }
+    8%   { opacity:1; transform:translateY(0); }
+    100% { opacity:1; transform:translateY(0); }
+  }
+  /* Final frame — fade in and stay */
+  @keyframes finalIn {
+    0%   { opacity:0; transform:translateY(20px); }
+    100% { opacity:1; transform:translateY(0); }
+  }
+
+  /*
+   * ═══════════════════════════════════════════
+   * TIMING MAP
+   * ═══════════════════════════════════════════
+   *
+   * Phase 1 — The cycle (0–7.5s), ~1.05s per line
+   *   L01  0.0s   "Download a new productivity app"
+   *   L02  1.1s   "Feel hopeful"
+   *   L03  2.1s   "Set up your tasks"
+   *   L04  3.1s   "Day 1: great"
+   *   L05  3.9s   "Day 2: great"
+   *   L06  4.7s   "Day 3: pretty good"
+   *   L07  5.7s   "Day 4: missed it"
+   *
+   * Phase 2 — The spiral (7.0–16s), 0.85s per line, faster
+   *   L08  7.0s   "Streak counter: 0"
+   *   L09  7.9s   "Notification: You missed yesterday!"
+   *   L10  8.9s   "Open the app"
+   *   L11  9.7s   "See everything you didn't do"
+   *   L12 10.7s   "Feel worse than before you had the app"
+   *   L13 11.8s   "Close the app"
+   *   L14 12.6s   "Don't open it for a week"
+   *   L15 13.5s   "Delete it"
+   *   L16 14.3s   "Feel guilty"
+   *   L17 15.2s   "Download a new app"
+   *
+   * Phase 3 — The break (16.5–20.5s)
+   *   L18 17.0s   "I did this for years."  (hold 2s)
+   *   L19 19.5s   "Then I built an app where:"
+   *
+   * Phase 4 — Resolution (21–27s), ~1.4s per line, slower
+   *   L20 21.0s   "You complete a task"
+   *   L21 22.3s   "You earn a seed"
+   *   L22 23.5s   "A plant grows"
+   *   L23 24.8s   "Miss a day?"
+   *   L24 26.0s   (pause built into timing)
+   *   L24 26.3s   "Nothing dies."
+   *   L25 27.6s   "Your garden just waits."
+   *
+   * Final (28.8–32s)
+   *   L26 29.0s   "BloomDay"
+   *   L27 29.6s   "The calm task app..."
+   */
+
+  /* ── Phase 1 lines ── */
+  #L01 { animation: lineShow 1.3s ease-out 0.0s forwards; }
+  #L02 { animation: lineShow 1.2s ease-out 1.1s forwards; }
+  #L03 { animation: lineShow 1.2s ease-out 2.1s forwards; }
+  #L04 { animation: lineShow 1.0s ease-out 3.1s forwards; }
+  #L05 { animation: lineShow 1.0s ease-out 3.9s forwards; }
+  #L06 { animation: lineShow 1.2s ease-out 4.7s forwards; }
+  #L07 { animation: lineShow 1.5s ease-out 5.7s forwards; }
+
+  /* ── Phase 2 lines (faster) ── */
+  #L08 { animation: lineShowFast 1.1s ease-out 7.0s forwards; }
+  #L09 { animation: lineShowFast 1.2s ease-out 7.9s forwards; }
+  #L10 { animation: lineShowFast 1.0s ease-out 8.9s forwards; }
+  #L11 { animation: lineShowFast 1.2s ease-out 9.7s forwards; }
+  #L12 { animation: lineShowFast 1.3s ease-out 10.7s forwards; }
+  #L13 { animation: lineShowFast 1.0s ease-out 11.8s forwards; }
+  #L14 { animation: lineShowFast 1.1s ease-out 12.6s forwards; }
+  #L15 { animation: lineShowFast 1.0s ease-out 13.5s forwards; }
+  #L16 { animation: lineShowFast 1.1s ease-out 14.3s forwards; }
+  #L17 { animation: lineShowFast 1.5s ease-out 15.2s forwards; }
+
+  /* ── Phase 3 lines (pause/hold) ── */
+  #L18 { animation: lineShow 2.8s ease-out 17.0s forwards; }
+  #L19 { animation: lineShow 2.0s ease-out 19.5s forwards; }
+
+  /* ── Phase 4 lines (slower, more breath) ── */
+  #L20 { animation: lineShowSlow 1.6s ease-out 21.0s forwards; }
+  #L21 { animation: lineShowSlow 1.5s ease-out 22.3s forwards; }
+  #L22 { animation: lineShowSlow 1.6s ease-out 23.5s forwards; }
+  #L23 { animation: lineShowSlow 1.8s ease-out 24.8s forwards; }
+  #L24 { animation: lineShowSlow 1.8s ease-out 26.3s forwards; }
+  #L25 { animation: lineShowSlow 1.8s ease-out 27.6s forwards; }
+
+  /* ── Final frame (hold) ── */
+  #L26 { animation: finalIn 0.8s ease-out 29.0s forwards; }
+  #L27 { animation: finalIn 0.8s ease-out 29.6s forwards; }
+</style>
+</head>
+<body>
+<div class="stage">
+
+  <!-- ═══ PHASE 1 — The cycle ═══ -->
+  <div class="line p1" id="L01">Download a new productivity app</div>
+  <div class="line p1" id="L02">Feel hopeful</div>
+  <div class="line p1" id="L03">Set up your tasks</div>
+  <div class="line p1" id="L04">Day 1: great</div>
+  <div class="line p1" id="L05">Day 2: great</div>
+  <div class="line p1" id="L06">Day 3: pretty good</div>
+  <div class="line p1" id="L07" style="color:#8A7A6A">Day 4: missed it</div>
+
+  <!-- ═══ PHASE 2 — The spiral ═══ -->
+  <div class="line p2" id="L08">Streak counter: 0</div>
+  <div class="line p2-bold" id="L09">Notification:<br>You missed yesterday!</div>
+  <div class="line p2" id="L10">Open the app</div>
+  <div class="line p2-bold" id="L11">See everything you didn't do</div>
+  <div class="line p2-peak" id="L12">Feel worse than before<br>you had the app</div>
+  <div class="line p2-late" id="L13">Close the app</div>
+  <div class="line p2-late" id="L14">Don't open it for a week</div>
+  <div class="line p2-peak" id="L15">Delete it</div>
+  <div class="line p2-late" id="L16">Feel guilty</div>
+  <div class="line p2-late" id="L17">Download a new app</div>
+
+  <!-- ═══ PHASE 3 — The break ═══ -->
+  <div class="line p3" id="L18">I did this for years.</div>
+  <div class="line p3-bridge" id="L19">Then I built an app where:</div>
+
+  <!-- ═══ PHASE 4 — Resolution ═══ -->
+  <div class="line p4" id="L20">You complete a task</div>
+  <div class="line p4" id="L21">You earn a seed</div>
+  <div class="line p4-key" id="L22">A plant grows</div>
+  <div class="line p4" id="L23">Miss a day?</div>
+  <div class="line p4-key" id="L24">Nothing dies.</div>
+  <div class="line p4-quiet" id="L25">Your garden just waits.</div>
+
+  <!-- ═══ FINAL FRAME ═══ -->
+  <div class="line" id="L26" style="top:calc(50% - 80px)">
+    <div class="final-brand">BloomDay</div>
+  </div>
+  <div class="line" id="L27" style="top:calc(50% + 30px)">
+    <div class="final-sub">The calm task app<br>for brains that don't work<br>in straight lines.</div>
+  </div>
+
+</div>
+</body>
+</html>
